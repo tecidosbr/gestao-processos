@@ -54,7 +54,7 @@ stages:
 
   - stage: Deploy
     jobs:
-      - job: Deploy
+      - deployment: Deploy
         timeoutInMinutes: 0
         pool:
           vmImage: 'vs2017-win2016'
