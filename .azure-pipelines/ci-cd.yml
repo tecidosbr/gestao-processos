@@ -45,7 +45,7 @@ stages:
           - task: CopyFiles@2
             displayName: Copy ARM templates
             inputs:
-              SourceFolder: armTemplates
+              SourceFolder: .azure-pipelines
               TargetFolder: $(build.artifactstagingdirectory)
           - task: PublishBuildArtifacts@1
             displayName: 'Publish Artifact: drop'
@@ -60,7 +60,7 @@ stages:
           vmImage: 'ubuntu-18.04'
         steps:
           - task: AzureResourceGroupDeployment@2
-            displayName: 'Azure Deployment:Create Azure App Service'
+            displayName: 'Azure Deployment: Create Azure App Service'
             inputs:
               azureSubscription: 'gestao-contratos-service - Azure'
               resourceGroupName: 'gestao-contratos-service-rg'
