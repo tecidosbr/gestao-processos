@@ -37,20 +37,21 @@ stages:
               includeRootFolder: false
               archiveFile: $(Build.ArtifactStagingDirectory)/app-v$(Build.BuildId).zip
           - task: ArchiveFiles@2
-            displayName: Archive tests
+            displayName: 'Archive tests'
             inputs:
               rootFolderOrFile: $(System.DefaultWorkingDirectory)/coverage
               includeRootFolder: false
-              archiveFile: $(Build.ArtifactStagingDirectory)/tests-v$(Build.BuildId).zip
+              archiveFile: '$(Build.ArtifactStagingDirectory)/tests-v$(Build.BuildId).zip'
           - task: CopyFiles@2
-            displayName: Archive ARM templates
+            displayName: 'Archive ARM templates'
             inputs:
-              SourceFolder: .azure-pipelines
-              TargetFolder: $(Build.ArtifactStagingDirectory)
+              SourceFolder: '.azure-pipelines'
+              Contents: 'windows-webapp-template.json'
+              TargetFolder: '$(Build.ArtifactStagingDirectory)'
           - task: PublishBuildArtifacts@1
-            displayName: 'Publish Artifact: drop'
+            displayName: 'Publish Artifact'
             inputs:
-              TargetPath: '/my/share/$(Build.DefinitionName)/$(Build.BuildNumber)'
+              TargetPath: '$(Build.ArtifactStagingDirectory)'
               artifactName: 'drop'
 
   - stage: Deploy
@@ -72,7 +73,7 @@ stages:
                     itemPattern: '**/app-v*.zip'
                     downloadPath: '$(System.ArtifactsDirectory)'
                 - task: AzureResourceGroupDeployment@2
-                  displayName: 'Azure Deployment: Create Azure App Service'
+                  displayName: 'Create Azure App Service'
                   inputs:
                     azureSubscription: 'gestao-contratos-service - Azure'
                     resourceGroupName: 'gestao-contratos-service-rg'
