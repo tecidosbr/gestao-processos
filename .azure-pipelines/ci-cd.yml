@@ -54,7 +54,7 @@ stages:
 
   - stage: Deploy
     jobs:
-      - job: Build
+      - job: Deploy
         timeoutInMinutes: 0
         pool:
           vmImage: 'ubuntu-18.04'
