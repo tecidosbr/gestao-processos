@@ -80,7 +80,7 @@ stages:
             inputs:
               azureSubscription: 'gestao-contratos-service - Azure'
               WebAppName: 'gestao-contratos-service'
-              Package: '$(System.DefaultWorkingDirectory)/**/app-v*.zip'
+              Package: '$(System.ArtifactsDirectory)/**/app-v*.zip'
               WebAppUri: webAppUrl
               TakeAppOfflineFlag: true
               UseWebDeploy: true
