@@ -59,6 +59,13 @@ stages:
         pool:
           vmImage: 'ubuntu-18.04'
         steps:
+          - task: DownloadBuildArtifacts@0
+            inputs:
+              buildType: 'current'
+              downloadType: 'single'
+              artifactName: 'drop'
+              itemPattern: '**/app-v*.zip'
+              downloadPath: '$(System.ArtifactsDirectory)'
           - task: AzureResourceGroupDeployment@2
             displayName: 'Azure Deployment: Create Azure App Service'
             inputs:
