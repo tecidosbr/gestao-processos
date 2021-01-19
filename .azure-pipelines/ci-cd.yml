@@ -58,6 +58,7 @@ stages:
         timeoutInMinutes: 0
         pool:
           vmImage: 'vs2017-win2016'
+        environment: 'production'
         strategy:
           runOnce:
             deploy:
