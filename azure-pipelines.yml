@@ -1,0 +1,54 @@
+trigger:
+  branches:
+    include:
+    - refs/heads/master
+  paths:
+    include:
+    - /
+  batch: True
+name: $(date:yyyyMMdd)$(rev:.r)
+jobs:
+- job: Phase_1
+  displayName: Agent job 1
+  timeoutInMinutes: 0
+  pool:
+    vmImage: ubuntu-18.04
+  steps:
+  - checkout: self
+  - task: NodeTool@0
+    displayName: Use Node version
+    inputs:
+      versionSpec: 14.15
+  - task: Npm@1
+    displayName: Install dependencies
+    inputs:
+      command: ci
+      verbose: false
+  - task: Npm@1
+    displayName: Run tests
+    inputs:
+      command: custom
+      verbose: false
+      customCommand: run test:azure
+  - task: ArchiveFiles@2
+    displayName: Archive application
+    inputs:
+      rootFolderOrFile: $(System.DefaultWorkingDirectory)
+      includeRootFolder: false
+      archiveFile: $(Build.ArtifactStagingDirectory)/app-v$(Build.BuildId).zip
+  - task: ArchiveFiles@2
+    displayName: Archive tests
+    inputs:
+      rootFolderOrFile: $(System.DefaultWorkingDirectory)/coverage
+      includeRootFolder: false
+      archiveFile: $(Build.ArtifactStagingDirectory)/tests-v$(Build.BuildId).zip
+  - task: CopyFiles@2
+    displayName: Copy ARM templates
+    inputs:
+      SourceFolder: armTemplates
+      TargetFolder: $(build.artifactstagingdirectory)
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish Artifact: drop'
+    inputs:
+      TargetPath: '\\my\share\$(Build.DefinitionName)\$(Build.BuildNumber)'
+...
