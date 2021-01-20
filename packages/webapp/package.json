@@ -52,6 +52,9 @@
         ]
     },
     "jest": {
+        "coverageReporters": [
+          ["lcov", { "projectRoot": "../.." }]
+        ],
         "setupFilesAfterEnv": [
             "direflow-scripts/direflow-jest.config.js"
         ]
