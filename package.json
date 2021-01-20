@@ -7,21 +7,25 @@
   "license": "UNLICENSED",
   "scripts": {
     "build": "lerna exec -- npm run build",
+    "postbuild": "lerna exec -- npm pack > ../../dist",
     "coverage": "lerna exec -- npm run test:cov",
     "lint": "lerna exec -- npm run build",
     "postinstall": "lerna exec -- npm ci",
+    "pack": "lerna exec -- npm pack",
     "prune": "lerna exec -- npm prune --production",
-    "release": "lerna exec --concurrency 1 -- npx --no-install semantic-release -e semantic-release-monorepo"
+    "release": "lerna exec --concurrency 1 -- npx --no-install semantic-release"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/commit-analyzer": "^8.0.1",
+    "@semantic-release/exec": "^5.0.0",
     "@semantic-release/git": "^9.0.0",
     "@semantic-release/github": "^7.2.0",
     "@semantic-release/npm": "^7.0.10",
     "@semantic-release/release-notes-generator": "^9.0.1",
     "lerna": "^3.22.1",
     "semantic-release": "^17.3.4",
+    "semantic-release-lerna": "^0.1.2",
     "semantic-release-monorepo": "^7.0.4"
   }
 }
