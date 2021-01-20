@@ -7,7 +7,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "build": "lerna exec -- npm run build",
-    "install": "lerna exec -- npm ci",
+    "install": "npm ci && lerna exec -- npm ci",
     "lint": "lerna exec -- npm run build",
     "prune": "lerna exec -- npm prune --production",
     "release": "npx semantic-release",
