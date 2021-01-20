@@ -7,13 +7,10 @@ module.exports = {
       "publishCmd": "lerna version --conventional-commits"
     }],
     ["@semantic-release/exec", {
-      "publishCmd": "npx lerna exec -- npm pack"
+      "publishCmd": "npx shx rm -rf dist && npx shx mkdir dist"
     }],
     ["@semantic-release/exec", {
-      "publishCmd": "npx shx mkdir dist"
-    }],
-    ["@semantic-release/exec", {
-      "publishCmd": "npx shx mv 'packages/*/*.tgz' dist"
+      "publishCmd": "npx lerna exec -- node ../../node_modules/npm-pack-all --output ../../dist/"
     }],
     "@semantic-release/git",
     ["@semantic-release/github", {
