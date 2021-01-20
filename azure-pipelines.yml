@@ -1,0 +1,37 @@
+trigger: none
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+
+- task: NodeTool@0
+  displayName: 'Install Node.js'
+  inputs:
+    versionSpec: '10.x'
+
+- task: DownloadGitHubRelease@0
+  displayName: 'Download Release'
+  inputs:
+    connection: 'tecidosbr'
+    userRepository: 'tecidosbr/gestao-contratos-service'
+    defaultVersionType: 'latest'
+    itemPattern: '*.tgz'
+    downloadPath: '$(System.DefaultWorkingDirectory)'
+
+- task: ExtractFiles@1
+  displayName: 'Extract Release Files'
+  inputs:
+    archiveFilePatterns: '$(System.DefaultWorkingDirectory)/**/*.tgz'
+    cleanDestinationFolder: true
+    overwriteExistingFiles: false
+    destinationFolder: '$(Build.ArtifactStagingDirectory)'
+
+- task: Npm@1
+  displayName: 'Install Dependencies'
+  inputs:
+    command: 'ci'
+    workingDir: '$(Build.ArtifactStagingDirectory)/package'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact'
