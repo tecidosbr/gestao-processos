@@ -1,0 +1,43 @@
+jobs:
+  - deployment: Deploy
+    timeoutInMinutes: 0
+    pool:
+      vmImage: 'vs2017-win2016'
+    environment: 'production'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+            - task: DownloadGitHubRelease@0
+              displayName: 'Download Release'
+              inputs:
+                connection: 'github'
+                userRepository: 'tecidosbr/gestao-contratos-service'
+                defaultVersionType: 'latest'
+                downloadPath: '$(System.DefaultWorkingDirectory)'
+                itemPattern: '*.tar.gz'
+            - task: ExtractFiles@1
+              displayName: 'Extract Release Files'
+              inputs:
+                archiveFilePatterns: '$(System.DefaultWorkingDirectory)/**/.tar.gz'
+                cleanDestinationFolder: true
+                overwriteExistingFiles: false
+                destinationFolder: '$(System.DefaultWorkingDirectory)/release'
+            - task: AzureResourceGroupDeployment@2
+              displayName: 'Create Azure App Service'
+              inputs:
+                azureSubscription: 'gestao-contratos-service - Azure'
+                resourceGroupName: 'gestao-contratos-service-rg'
+                location: 'South Central US'
+                csmFile: '$(System.DefaultWorkingDirectory)/release/**/windows-webapp-template.json'
+                overrideParameters: '-webAppName gestao-contratos-service -hostingPlanName gestao-contratos-service-plan -appInsightsLocation "South Central US" -sku "F1 Free"'
+            - task: AzureRmWebAppDeployment@3
+              displayName: 'Deploy Azure App Service'
+              inputs:
+                azureSubscription: 'gestao-contratos-service - Azure'
+                WebAppName: 'gestao-contratos-service'
+                Package: '$(System.DefaultWorkingDirectory)/release'
+                WebAppUri: webAppUrl
+                TakeAppOfflineFlag: true
+                UseWebDeploy: true
+                RenameFilesFlag: true
