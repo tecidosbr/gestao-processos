@@ -1,3 +1,26 @@
+# [1.2.0](https://github.com/tecidosbr/gestao-contratos-service/compare/v1.1.7...v1.2.0) (2021-01-20)
+
+
+### Bug Fixes
+
+* cov command ([81b6bdd](https://github.com/tecidosbr/gestao-contratos-service/commit/81b6bdd604fd16574cef62a1478a213df0081fdf))
+* dependency instalation ([3884a62](https://github.com/tecidosbr/gestao-contratos-service/commit/3884a62064d7182a1012c1055a7146ed28940087))
+* dependency installation ([c48b75e](https://github.com/tecidosbr/gestao-contratos-service/commit/c48b75e4be66cefbbe6e85351e2eaba98b0fa2d3))
+* release ([f2d7241](https://github.com/tecidosbr/gestao-contratos-service/commit/f2d7241dfe57bc7448dad833416c865ffb494f7b))
+* release ([7d71b2b](https://github.com/tecidosbr/gestao-contratos-service/commit/7d71b2b4ba3431fad4b17da80f2f2c21b185a068))
+* release ([881400a](https://github.com/tecidosbr/gestao-contratos-service/commit/881400ae319e0e7706b53a613597d0f50d685a1b))
+* release to github ([f5c5264](https://github.com/tecidosbr/gestao-contratos-service/commit/f5c52646d19e28fd9b49fcf39959e64bee0cb30d))
+* runtime error ([a9f2c0f](https://github.com/tecidosbr/gestao-contratos-service/commit/a9f2c0f2e57af9afa30d2ac7944c6173acf7a471))
+* scripts ([7d2946f](https://github.com/tecidosbr/gestao-contratos-service/commit/7d2946f1aef0b7fd83798c5efc741d9be0453fa1))
+* user lerna ([b0d6b29](https://github.com/tecidosbr/gestao-contratos-service/commit/b0d6b2972cd3f1bb00dce4a47b9880bcf25816fe))
+* user lerna to release ([88f17ee](https://github.com/tecidosbr/gestao-contratos-service/commit/88f17eee591bae39cef20435bcd4c6eaf32683a6))
+
+
+### Features
+
+* create monorepo ([da61413](https://github.com/tecidosbr/gestao-contratos-service/commit/da6141338537906ff50a65c62f9665d5d7789477))
+* use package dir ([56c71f4](https://github.com/tecidosbr/gestao-contratos-service/commit/56c71f4cd1945241b7f2fc339f7fb8f8cfeb4146))
+
 ## [1.1.8](https://github.com/tecidosbr/gestao-contratos/compare/v1.1.7...v1.1.8) (2021-01-20)
 
 

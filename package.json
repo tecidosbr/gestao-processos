@@ -1,18 +1,20 @@
 {
   "name": "gestao-contratos",
-  "version": "1.1.7",
+  "version": "1.2.0",
   "description": "",
   "author": "",
   "private": true,
   "license": "UNLICENSED",
-  "workspaces": ["packages/*"],
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "build": "lerna exec -- npm run build",
     "coverage": "lerna exec -- npm run coverage",
     "lint": "lerna exec -- npm run build",
     "postinstall": "lerna exec -- npm ci",
     "prune": "lerna exec -- npm prune --production",
-    "release": "npx multi-semantic-release"
+    "release": "npx semantic-release"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^5.0.1",
@@ -23,6 +25,6 @@
     "@semantic-release/npm": "^7.0.10",
     "@semantic-release/release-notes-generator": "^9.0.1",
     "lerna": "^3.22.1",
-    "multi-semantic-release": "^2.6.0"
+    "semantic-release": "^17.3.4"
   }
 }
