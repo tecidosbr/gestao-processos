@@ -1,3 +1,10 @@
+## [1.1.8](https://github.com/tecidosbr/gestao-contratos/compare/v1.1.7...v1.1.8) (2021-01-20)
+
+
+### Bug Fixes
+
+* runtime error ([a9f2c0f](https://github.com/tecidosbr/gestao-contratos/commit/a9f2c0f2e57af9afa30d2ac7944c6173acf7a471))
+
 ## [1.1.7](https://github.com/tecidosbr/gestao-contratos-service/compare/v1.1.6...v1.1.7) (2021-01-20)
 
 
