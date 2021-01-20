@@ -9,8 +9,11 @@ module.exports = {
     ["@semantic-release/exec", {
       "publishCmd": "npx lerna exec -- npm pack"
     }],
-    ["@semantic-release/npm", {
-      "tarballDir": "dist",
+    ["@semantic-release/exec", {
+      "publishCmd": "npx shx mkdir dist"
+    }],
+    ["@semantic-release/exec", {
+      "publishCmd": "npx shx mv 'packages/*/*.tgz' dist"
     }],
     "@semantic-release/git",
     ["@semantic-release/github", {
