@@ -1,3 +1,13 @@
+## [3.0.3](https://github.com/tecidosbr/gestao-contratos/compare/v3.0.2...v3.0.3) (2021-01-20)
+
+
+### Bug Fixes
+
+* build ([aeab0e7](https://github.com/tecidosbr/gestao-contratos/commit/aeab0e7803a127ebd5b9a4a5d919882586e82327))
+* build ([63e1a8b](https://github.com/tecidosbr/gestao-contratos/commit/63e1a8bd11c74d7460299f9d443406af345588d7))
+* ci scripts ([fe3daa7](https://github.com/tecidosbr/gestao-contratos/commit/fe3daa7db30949a1c40ec1c6ec16fa6b5b8301a4))
+* upgrade react-scripts ([513b726](https://github.com/tecidosbr/gestao-contratos/commit/513b7268ffb4f3c35b68c3067612291fb4917c10))
+
 ## [3.0.2](https://github.com/tecidosbr/gestao-contratos/compare/v3.0.1...v3.0.2) (2021-01-20)
 
 
