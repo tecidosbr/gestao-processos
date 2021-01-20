@@ -1,6 +1,4 @@
 {
-  "packages": [
-    "service"
-  ],
+  "useWorkspaces": true,
   "version": "2.0.0"
 }
