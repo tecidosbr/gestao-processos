@@ -30,11 +30,17 @@ jobs:
       run: npm run build
 
     - name: 'Test'
+      run: npm run coverage
+
+    - name: 'Upload Build Quality'
       uses: paambaati/codeclimate-action@v2.7.5
       env:
         CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
       with:
         coverageLocations: ${{github.workspace}}/packages/*/coverage/lcov.info:lcov
+
+    - name: 'Prune Dependencies'
+      run: npm run prune
 
     - name: 'Release'
       run: npm run release

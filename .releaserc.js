@@ -4,7 +4,7 @@ module.exports = {
     "@semantic-release/release-notes-generator",
     "@semantic-release/changelog",
     ["@semantic-release/exec", {
-      "publishCmd": "lerna version --conventional-commits"
+      "publishCmd": "lerna version --conventional-commits --yes"
     }],
     ["@semantic-release/exec", {
       "publishCmd": "npx shx rm -rf dist && npx shx mkdir dist"
