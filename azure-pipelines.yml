@@ -25,13 +25,14 @@ steps:
     archiveFilePatterns: '$(System.DefaultWorkingDirectory)/**/*.tgz'
     cleanDestinationFolder: true
     overwriteExistingFiles: false
-    destinationFolder: '$(Build.ArtifactStagingDirectory)'
+    destinationFolder: '$(System.DefaultWorkingDirectory)'
 
 - task: Npm@1
   displayName: 'Install Dependencies'
   inputs:
     command: 'ci'
-    workingDir: '$(Build.ArtifactStagingDirectory)/package'
+    workingDir: '$(System.DefaultWorkingDirectory)/package'
+
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact'
