@@ -1,3 +1,10 @@
+## [2.1.1](https://github.com/tecidosbr/gestao-contratos-service/compare/v2.1.0...v2.1.1) (2021-01-20)
+
+
+### Bug Fixes
+
+* cov root ([107a217](https://github.com/tecidosbr/gestao-contratos-service/commit/107a217c99505526f9ec467f1a2433b815fcf2ae))
+
 # [2.1.0](https://github.com/tecidosbr/gestao-contratos/compare/v2.0.2...v2.1.0) (2021-01-20)
 
 
