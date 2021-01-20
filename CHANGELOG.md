@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/tecidosbr/gestao-contratos-service/compare/v1.1.1...v1.1.2) (2021-01-20)
+
+
+### Bug Fixes
+
+* Update deploy.yml for Azure Pipelines ([3a7afa1](https://github.com/tecidosbr/gestao-contratos-service/commit/3a7afa16268fdf6696bf1a7fc7d59ea7d5da25c3))
+
 ## [1.1.1](https://github.com/tecidosbr/gestao-contratos-service/compare/v1.1.0...v1.1.1) (2021-01-20)
 
 
