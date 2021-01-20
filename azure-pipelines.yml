@@ -33,6 +33,13 @@ steps:
     command: 'ci'
     workingDir: '$(System.DefaultWorkingDirectory)/release/package'
 
+- task: Npm@1
+  displayName: 'Prune Dependencies'
+  inputs:
+    command: 'custom'
+    workingDir: '$(System.DefaultWorkingDirectory)/release/package'
+    customCommand: 'prune --production'
+
 - task: ArchiveFiles@2
   inputs:
     rootFolderOrFile: '$(System.DefaultWorkingDirectory)/release/package'
