@@ -1,3 +1,10 @@
+## [2.0.2](https://github.com/tecidosbr/gestao-contratos/compare/v2.0.1...v2.0.2) (2021-01-20)
+
+
+### Bug Fixes
+
+* ci ([5059397](https://github.com/tecidosbr/gestao-contratos/commit/505939750649ca7101895d66b4cc11638cccef4f))
+
 # Change Log
 
 All notable changes to this project will be documented in this file.
