@@ -16,11 +16,11 @@ jobs:
                 userRepository: 'tecidosbr/gestao-contratos-service'
                 defaultVersionType: 'latest'
                 downloadPath: '$(System.DefaultWorkingDirectory)'
-                itemPattern: '*.tar.gz'
+                itemPattern: '*.tgz'
             - task: ExtractFiles@1
               displayName: 'Extract Release Files'
               inputs:
-                archiveFilePatterns: '$(System.DefaultWorkingDirectory)/**/.tar.gz'
+                archiveFilePatterns: '$(System.DefaultWorkingDirectory)/**/*.tgz'
                 cleanDestinationFolder: true
                 overwriteExistingFiles: false
                 destinationFolder: '$(System.DefaultWorkingDirectory)/release'

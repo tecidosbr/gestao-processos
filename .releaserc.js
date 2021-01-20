@@ -13,7 +13,7 @@ module.exports = {
     [
       '@semantic-release/github',
       {
-        assets: '*.tgz',
+        assets: 'dist/*.tgz',
       },
     ],
   ],
