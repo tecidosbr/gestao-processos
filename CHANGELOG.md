@@ -1,3 +1,10 @@
+## [1.1.4](https://github.com/tecidosbr/gestao-contratos-service/compare/v1.1.3...v1.1.4) (2021-01-20)
+
+
+### Bug Fixes
+
+* add package-lock ([3df2272](https://github.com/tecidosbr/gestao-contratos-service/commit/3df22726c3bcc5e65c1de3c518a67e778c992614))
+
 ## [1.1.3](https://github.com/tecidosbr/gestao-contratos-service/compare/v1.1.2...v1.1.3) (2021-01-20)
 
 
