@@ -1,3 +1,10 @@
+# [2.3.0](https://github.com/tecidosbr/gestao-contratos/compare/v2.2.0...v2.3.0) (2021-01-20)
+
+
+### Features
+
+* capitalize label ([35c2682](https://github.com/tecidosbr/gestao-contratos/commit/35c26828a10a3b79d13e9e3b7f1b2babc7624aaf))
+
 # [2.2.0](https://github.com/tecidosbr/gestao-contratos/compare/v2.1.2...v2.2.0) (2021-01-20)
 
 
