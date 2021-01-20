@@ -11,7 +11,7 @@
     "lint": "lerna exec -- npm run build",
     "postinstall": "lerna exec -- npm ci",
     "prune": "lerna exec -- npm prune --production",
-    "release": "npx semantic-release"
+    "release": "lerna exec --concurrency 1 -- npx --no-install semantic-release"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^5.0.1",
