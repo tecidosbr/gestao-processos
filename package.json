@@ -5,16 +5,12 @@
   "author": "",
   "private": true,
   "license": "UNLICENSED",
-  "workspaces": [
-    "service"
-  ],
+  "workspaces": ["packages/*"],
   "scripts": {
     "build": "lerna exec -- npm run build",
-    "postbuild": "lerna exec -- npm pack > ../../dist",
-    "coverage": "lerna exec -- npm run test:cov",
+    "coverage": "lerna exec -- npm run coverage",
     "lint": "lerna exec -- npm run build",
     "postinstall": "lerna exec -- npm ci",
-    "pack": "lerna exec -- npm pack",
     "prune": "lerna exec -- npm prune --production",
     "release": "npx multi-semantic-release"
   },
@@ -27,10 +23,6 @@
     "@semantic-release/npm": "^7.0.10",
     "@semantic-release/release-notes-generator": "^9.0.1",
     "lerna": "^3.22.1",
-    "multi-semantic-release": "^2.6.0",
-    "semantic-release": "^17.3.4",
-    "semantic-release-lerna": "^0.1.2",
-    "semantic-release-monorepo": "^7.0.4",
-    "semantic-release-monorepo-hooks": "^2.9.7"
+    "multi-semantic-release": "^2.6.0"
   }
 }
