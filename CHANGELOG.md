@@ -1,3 +1,10 @@
+## [3.0.2](https://github.com/tecidosbr/gestao-contratos/compare/v3.0.1...v3.0.2) (2021-01-20)
+
+
+### Bug Fixes
+
+* azure pipeline ([ca87ad4](https://github.com/tecidosbr/gestao-contratos/commit/ca87ad42f0e129c6ac1a5c53cf5d24b7ec79fd6d))
+
 ## [3.0.1](https://github.com/tecidosbr/gestao-contratos/compare/v3.0.0...v3.0.1) (2021-01-20)
 
 
