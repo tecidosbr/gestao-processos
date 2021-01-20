@@ -11,7 +11,7 @@
   "scripts": {
     "build": "lerna exec -- npm run build",
     "coverage": "lerna exec -- npm run coverage",
-    "lint": "lerna exec -- npm run build",
+    "lint": "lerna exec -- npm run lint",
     "postinstall": "lerna exec -- npm ci",
     "prune": "lerna exec -- npm prune --production",
     "release": "npx semantic-release"

@@ -8,6 +8,7 @@
         "build": "direflow-scripts build",
         "coverage": "npm run test -- --coverage",
         "build:lib": "direflow-scripts build:lib",
+        "lint": "eslint \"{src,apps,libs,test}/**/*.ts\"",
         "test": "direflow-scripts test"
     },
     "dependencies": {
@@ -52,14 +53,6 @@
         ]
     },
     "jest": {
-        "coverageReporters": [
-            [
-                "lcov",
-                {
-                    "projectRoot": "../.."
-                }
-            ]
-        ],
         "setupFilesAfterEnv": [
             "direflow-scripts/direflow-jest.config.js"
         ]
