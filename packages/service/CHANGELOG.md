@@ -1,3 +1,15 @@
+# gestao-contratos-service [1.1.0](https://github.com/tecidosbr/gestao-contratos/compare/gestao-contratos-service@1.0.0...gestao-contratos-service@1.1.0) (2021-01-20)
+
+
+### Bug Fixes
+
+* cov command ([81b6bdd](https://github.com/tecidosbr/gestao-contratos/commit/81b6bdd604fd16574cef62a1478a213df0081fdf))
+
+
+### Features
+
+* use package dir ([56c71f4](https://github.com/tecidosbr/gestao-contratos/commit/56c71f4cd1945241b7f2fc339f7fb8f8cfeb4146))
+
 # gestao-contratos-service 1.0.0 (2021-01-20)
 
 
