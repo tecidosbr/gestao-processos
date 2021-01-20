@@ -1,54 +1,19 @@
-# [2.3.0](https://github.com/tecidosbr/gestao-contratos/compare/v2.2.0...v2.3.0) (2021-01-20)
-
-
-### Features
-
-* capitalize label ([35c2682](https://github.com/tecidosbr/gestao-contratos/commit/35c26828a10a3b79d13e9e3b7f1b2babc7624aaf))
-
-# [2.2.0](https://github.com/tecidosbr/gestao-contratos/compare/v2.1.2...v2.2.0) (2021-01-20)
-
-
-### Features
-
-* run azure pipeline ([084ef28](https://github.com/tecidosbr/gestao-contratos/commit/084ef280636d2fa74145702dd9c9dda529253ea7))
-
-## [2.1.2](https://github.com/tecidosbr/gestao-contratos/compare/v2.1.1...v2.1.2) (2021-01-20)
-
-
-### Bug Fixes
-
-* ci/cd ([ec17769](https://github.com/tecidosbr/gestao-contratos/commit/ec177696e2f9072c2a61972681475bb279796e9d))
-
-## [2.1.1](https://github.com/tecidosbr/gestao-contratos-service/compare/v2.1.0...v2.1.1) (2021-01-20)
-
-
-### Bug Fixes
-
-* cov root ([107a217](https://github.com/tecidosbr/gestao-contratos-service/commit/107a217c99505526f9ec467f1a2433b815fcf2ae))
-
-# [2.1.0](https://github.com/tecidosbr/gestao-contratos/compare/v2.0.2...v2.1.0) (2021-01-20)
-
-
-### Bug Fixes
-
-* release ([c46b809](https://github.com/tecidosbr/gestao-contratos/commit/c46b809f5a978ffc87925ad004ae770b6fb4f3f8))
-
-
-### Features
-
-* use npm-pack-all ([e7c2e60](https://github.com/tecidosbr/gestao-contratos/commit/e7c2e60957a25298148b7fc2c99e5fc8d0dd05e6))
-
-## [2.0.2](https://github.com/tecidosbr/gestao-contratos/compare/v2.0.1...v2.0.2) (2021-01-20)
-
-
-### Bug Fixes
-
-* ci ([5059397](https://github.com/tecidosbr/gestao-contratos/commit/505939750649ca7101895d66b4cc11638cccef4f))
-
 # Change Log
 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.0.2](https://github.com/tecidosbr/gestao-contratos-service/compare/v2.3.0...v2.0.2) (2021-01-20)
+
+
+### Bug Fixes
+
+* releaserc ([6a29a72](https://github.com/tecidosbr/gestao-contratos-service/commit/6a29a729c63fa731ff3b80d677f0e34899fa1417))
+
+
+
+
+
 
 ## [2.0.1](https://github.com/tecidosbr/gestao-contratos-service/compare/v1.3.0...v2.0.1) (2021-01-20)
 
