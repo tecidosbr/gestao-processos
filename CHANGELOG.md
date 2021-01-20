@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/tecidosbr/gestao-contratos-service/compare/v1.2.0...v1.3.0) (2021-01-20)
+
+
+### Features
+
+* force new version ([73fd554](https://github.com/tecidosbr/gestao-contratos-service/commit/73fd554ade1e2b89fca5f0f26c6af7416030a526))
+
 # [1.2.0](https://github.com/tecidosbr/gestao-contratos-service/compare/v1.1.7...v1.2.0) (2021-01-20)
 
 
