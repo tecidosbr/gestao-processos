@@ -25,17 +25,17 @@ steps:
     archiveFilePatterns: '$(System.DefaultWorkingDirectory)/**/*.tgz'
     cleanDestinationFolder: true
     overwriteExistingFiles: false
-    destinationFolder: '$(System.DefaultWorkingDirectory)'
+    destinationFolder: '$(System.DefaultWorkingDirectory)/release'
 
 - task: Npm@1
   displayName: 'Install Dependencies'
   inputs:
     command: 'ci'
-    workingDir: '$(System.DefaultWorkingDirectory)/package'
+    workingDir: '$(System.DefaultWorkingDirectory)/release/package'
 
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: '$(System.DefaultWorkingDirectory)/package'
+    rootFolderOrFile: '$(System.DefaultWorkingDirectory)/release/package'
     includeRootFolder: false
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/package-$(Build.BuildId).zip'
