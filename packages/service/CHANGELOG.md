@@ -1,3 +1,16 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.0.1](https://github.com/tecidosbr/gestao-contratos-service/compare/v1.3.0...v2.0.1) (2021-01-20)
+
+**Note:** Version bump only for package gestao-contratos-service
+
+
+
+
+
 # gestao-contratos-service [1.1.0](https://github.com/tecidosbr/gestao-contratos/compare/gestao-contratos-service@1.0.0...gestao-contratos-service@1.1.0) (2021-01-20)
 
 
