@@ -4,7 +4,7 @@ import App from './App';
 export default DireflowComponent.create({
   component: App,
   configuration: {
-    tagname: 'webapp-component',
+    tagname: 'gestao-contratos-webapp',
   },
   plugins: [
     {
