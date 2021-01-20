@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/tecidosbr/gestao-contratos-service/compare/v1.1.0...v1.1.1) (2021-01-20)
+
+
+### Bug Fixes
+
+* package pattern ([6294576](https://github.com/tecidosbr/gestao-contratos-service/commit/6294576e26f322a9e9452d85558dc1865cfa52dd))
+
 # [1.1.0](https://github.com/tecidosbr/gestao-contratos-service/compare/v1.0.0...v1.1.0) (2021-01-20)
 
 
