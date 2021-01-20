@@ -1,3 +1,15 @@
+# [2.1.0](https://github.com/tecidosbr/gestao-contratos/compare/v2.0.2...v2.1.0) (2021-01-20)
+
+
+### Bug Fixes
+
+* release ([c46b809](https://github.com/tecidosbr/gestao-contratos/commit/c46b809f5a978ffc87925ad004ae770b6fb4f3f8))
+
+
+### Features
+
+* use npm-pack-all ([e7c2e60](https://github.com/tecidosbr/gestao-contratos/commit/e7c2e60957a25298148b7fc2c99e5fc8d0dd05e6))
+
 ## [2.0.2](https://github.com/tecidosbr/gestao-contratos/compare/v2.0.1...v2.0.2) (2021-01-20)
 
 
