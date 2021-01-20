@@ -7,11 +7,11 @@
   "license": "UNLICENSED",
   "scripts": {
     "build": "lerna exec -- npm run build",
+    "coverage": "lerna exec -- npm run test:cov",
     "lint": "lerna exec -- npm run build",
     "postinstall": "lerna exec -- npm ci",
     "prune": "lerna exec -- npm prune --production",
-    "release": "npx semantic-release",
-    "test": "lerna exec -- npm run test:cov"
+    "release": "npx semantic-release"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^5.0.1",

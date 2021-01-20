@@ -30,9 +30,6 @@ jobs:
       run: npm run build
 
     - name: 'Test'
-      run: npm run test
-
-    - name: 'Publish Build Quality Report'
       uses: paambaati/codeclimate-action@v2.6.0
       env:
         CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
