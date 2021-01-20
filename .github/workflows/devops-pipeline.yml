@@ -23,7 +23,7 @@ jobs:
     - name: 'Install Dependencies'
       run: npm ci
 
-    - name: 'Run Static checking'
+    - name: 'Run Static Checking'
       run: npm run lint
 
     - name: 'Build'
