@@ -12,11 +12,11 @@ jobs:
             - task: DownloadGitHubRelease@0
               displayName: 'Download Release'
               inputs:
-                connection: 'github'
+                connection: 'tecidosbr'
                 userRepository: 'tecidosbr/gestao-contratos-service'
                 defaultVersionType: 'latest'
-                downloadPath: '$(System.DefaultWorkingDirectory)'
                 itemPattern: '*.tgz'
+                downloadPath: '$(System.DefaultWorkingDirectory)'
             - task: ExtractFiles@1
               displayName: 'Extract Release Files'
               inputs:
