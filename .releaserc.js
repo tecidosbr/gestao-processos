@@ -3,12 +3,15 @@ module.exports = {
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
     "@semantic-release/changelog",
+    ["@semantic-release/exec", {
+      "publishCmd": "npx lerna exec -- npm pack"
+    }],
     ["@semantic-release/npm", {
       "tarballDir": "dist",
     }],
     "@semantic-release/git",
     ["@semantic-release/github", {
-      "assets": "dist/*.tgz",
+      "assets": "packages/*/*.tgz",
     }],
   ]
 }
