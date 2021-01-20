@@ -41,10 +41,10 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: 'Deploy'
-      if: github.ref == 'refs/heads/master'
-      uses: Azure/pipelines@v1
-      with:
-        azure-devops-project-url: 'https://dev.azure.com/1228409/gestao-contratos'
-        azure-pipeline-name: 'ci-pipeline'
-        azure-devops-token: '${{ secrets.AZURE_DEVOPS_TOKEN }}'
+    # - name: 'Deploy'
+    #   if: github.ref == 'refs/heads/master'
+    #   uses: Azure/pipelines@v1
+    #   with:
+    #     azure-devops-project-url: 'https://dev.azure.com/1228409/gestao-contratos'
+    #     azure-pipeline-name: 'ci-pipeline'
+    #     azure-devops-token: '${{ secrets.AZURE_DEVOPS_TOKEN }}'
