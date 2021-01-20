@@ -36,7 +36,7 @@ jobs:
               inputs:
                 azureSubscription: 'gestao-contratos-service - Azure'
                 WebAppName: 'gestao-contratos-service'
-                Package: '$(System.DefaultWorkingDirectory)/release'
+                Package: '$(System.DefaultWorkingDirectory)/release/package'
                 WebAppUri: webAppUrl
                 TakeAppOfflineFlag: true
                 UseWebDeploy: true
