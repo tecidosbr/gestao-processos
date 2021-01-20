@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/tecidosbr/gestao-contratos/compare/v2.1.2...v2.2.0) (2021-01-20)
+
+
+### Features
+
+* run azure pipeline ([084ef28](https://github.com/tecidosbr/gestao-contratos/commit/084ef280636d2fa74145702dd9c9dda529253ea7))
+
 ## [2.1.2](https://github.com/tecidosbr/gestao-contratos/compare/v2.1.1...v2.1.2) (2021-01-20)
 
 
