@@ -8,7 +8,7 @@
         "build": "direflow-scripts build",
         "coverage": "npm run test -- --coverage",
         "build:lib": "direflow-scripts build:lib",
-        "lint": "eslint \"{src,apps,libs,test}/**/*.ts\"",
+        "lint": "eslint \"{src,apps,libs,test}/**/*.{ts,tsx}\"",
         "test": "direflow-scripts test"
     },
     "dependencies": {
@@ -19,7 +19,7 @@
         "direflow-scripts": "3.5.1",
         "react": "16.13.1",
         "react-dom": "16.13.1",
-        "react-scripts": "^4.0.1"
+        "react-scripts": "^3.4.4"
     },
     "devDependencies": {
         "@types/jest": "24.0.18",
