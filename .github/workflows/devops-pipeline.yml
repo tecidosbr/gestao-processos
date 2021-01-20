@@ -21,7 +21,7 @@ jobs:
       run: git branch master origin/master
 
     - name: 'Install Dependencies'
-      run: npm run install
+      run: npm ci
 
     - name: 'Run Static checking'
       run: npm run lint
