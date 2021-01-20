@@ -16,20 +16,26 @@ stages:
         steps:
           - checkout: self
           - task: NodeTool@0
-            displayName: Use Node version
+            displayName: 'Use Node version'
             inputs:
               versionSpec: 14.15
           - task: Npm@1
-            displayName: Install dependencies
+            displayName: 'Install dependencies'
             inputs:
               command: ci
               verbose: false
           - task: Npm@1
-            displayName: Run tests
+            displayName: 'Run tests'
             inputs:
               command: custom
-              verbose: false
               customCommand: run test:azure
+              verbose: false
+          - task: Npm@1
+            displayName: 'Prune dependencies'
+            inputs:
+              command: custom
+              customCommand: prune --production
+              verbose: false
           - task: ArchiveFiles@2
             displayName: Archive application
             inputs:
