@@ -1,3 +1,10 @@
+## [3.0.1](https://github.com/tecidosbr/gestao-contratos/compare/v3.0.0...v3.0.1) (2021-01-20)
+
+
+### Bug Fixes
+
+* generate zip archives ([9a6c26a](https://github.com/tecidosbr/gestao-contratos/commit/9a6c26abf2eeb73542139b757f09687e6e511733))
+
 # Change Log
 
 All notable changes to this project will be documented in this file.
