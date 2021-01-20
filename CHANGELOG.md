@@ -1,3 +1,10 @@
+## [1.1.5](https://github.com/tecidosbr/gestao-contratos-service/compare/v1.1.4...v1.1.5) (2021-01-20)
+
+
+### Bug Fixes
+
+* ci pipeline name ([c5fed4a](https://github.com/tecidosbr/gestao-contratos-service/commit/c5fed4a256535a7da1cc1f5ecf635aef269cf190))
+
 ## [1.1.4](https://github.com/tecidosbr/gestao-contratos-service/compare/v1.1.3...v1.1.4) (2021-01-20)
 
 
