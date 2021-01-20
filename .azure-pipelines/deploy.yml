@@ -24,6 +24,15 @@ jobs:
                 cleanDestinationFolder: true
                 overwriteExistingFiles: false
                 destinationFolder: '$(System.DefaultWorkingDirectory)/release'
+            - task: NodeTool@0
+              displayName: 'Install NodeJs'
+              inputs:
+                versionSpec: '14.x'
+            - task: Npm@1
+              displayName: 'Install Dependencies'
+              inputs:
+                command: 'ci'
+                workingDir: '$(System.DefaultWorkingDirectory)/release/package'
             - task: AzureResourceGroupDeployment@2
               displayName: 'Create Azure App Service'
               inputs:
