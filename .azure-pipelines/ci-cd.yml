@@ -76,7 +76,7 @@ stages:
                     buildType: 'current'
                     downloadType: 'single'
                     artifactName: 'drop'
-                    itemPattern: '**/app-v*.zip'
+                    itemPattern: '**/*'
                     downloadPath: '$(System.ArtifactsDirectory)'
                 - task: AzureResourceGroupDeployment@2
                   displayName: 'Create Azure App Service'
@@ -84,14 +84,14 @@ stages:
                     azureSubscription: 'gestao-contratos-service - Azure'
                     resourceGroupName: 'gestao-contratos-service-rg'
                     location: 'South Central US'
-                    csmFile: '$(System.DefaultWorkingDirectory)/**/windows-webapp-template.json'
+                    csmFile: '$(System.ArtifactsDirectory)/**/windows-webapp-template.json'
                     overrideParameters: '-webAppName gestao-contratos-service -hostingPlanName gestao-contratos-service-plan -appInsightsLocation "South Central US" -sku "F1 Free"'
                 - task: AzureRmWebAppDeployment@3
                   displayName: 'Deploy Azure App Service'
                   inputs:
                     azureSubscription: 'gestao-contratos-service - Azure'
                     WebAppName: 'gestao-contratos-service'
-                    Package: '$(System.ArtifactsDirectory)/drop/app-v*.zip'
+                    Package: '$(System.ArtifactsDirectory)/**/app-v*.zip'
                     WebAppUri: webAppUrl
                     TakeAppOfflineFlag: true
                     UseWebDeploy: true
