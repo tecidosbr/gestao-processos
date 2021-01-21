@@ -6,7 +6,7 @@
   "private": true,
   "license": "UNLICENSED",
   "workspaces": [
-    "packages/*",
+    "packages/*"
   ],
   "scripts": {
     "build": "lerna exec -- npm run build",
