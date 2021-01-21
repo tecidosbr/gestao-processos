@@ -1,5 +1,3 @@
-const pkg = require("./package.json");
-
 module.exports = {
   plugins: [
     "@semantic-release/commit-analyzer",
@@ -19,7 +17,7 @@ module.exports = {
     }],
     ["@semantic-release/git", {
       "assets": ["CHANGELOG.md", "lerna.json"],
-    }]
+    }],
     ["@semantic-release/github", {
       "assets": "release/*",
     }],
