@@ -39,15 +39,12 @@ jobs:
       with:
         coverageLocations: ${{github.workspace}}/packages/*/coverage/lcov.info:lcov
 
-    - name: 'Prune Dependencies'
-      run: npm run prune
-
     - name: 'Release'
       run: npm run release
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: 'Deploy'
+    - name: 'Trigger Deploy'
       if: github.ref == 'refs/heads/master'
       uses: Azure/pipelines@v1
       with:

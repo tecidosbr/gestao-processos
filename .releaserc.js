@@ -13,6 +13,9 @@ module.exports = {
       "prepareCmd": "shx rm -rf release && shx mkdir release"
     }],
     ["@semantic-release/exec", {
+      "prepareCmd": "lerna exec -- npm prune --production"
+    }],
+    ["@semantic-release/exec", {
       "prepareCmd": "lerna exec -- node ../../node_modules/npm-pack-all --output ../../release/"
     }],
     ["@semantic-release/exec", {
