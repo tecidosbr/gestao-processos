@@ -1,3 +1,5 @@
+const pkg = require("./package.json");
+
 module.exports = {
   plugins: [
     "@semantic-release/commit-analyzer",
@@ -10,9 +12,6 @@ module.exports = {
       "publishCmd": "npm version ${nextRelease.version} --git-tag-version=false --allow-same-version"
     }],
     ["@semantic-release/exec", {
-      "publishCmd": "git add ."
-    }],
-    ["@semantic-release/exec", {
       "publishCmd": "shx rm -rf dist && shx mkdir dist"
     }],
     ["@semantic-release/exec", {
@@ -21,7 +20,9 @@ module.exports = {
     ["@semantic-release/exec", {
       "publishCmd": "tar2zip dist/*.tgz"
     }],
-    "@semantic-release/git",
+    ["@semantic-release/git", {
+      "assets": ["package.json", "CHANGELOG.md", pkg.workspaces.map(p => `${p}/package.json`)],
+    }],
     ["@semantic-release/github", {
       "assets": "dist/*",
     }],
