@@ -6,6 +6,7 @@
     "scripts": {
         "start": "direflow-scripts start",
         "build": "direflow-scripts build",
+        "postbuild": "shx rm -rf dist && shx mkdir dist && shx cp build/* dist && shx cp public/* dist",
         "coverage": "npm run test -- --coverage",
         "build:lib": "direflow-scripts build:lib",
         "lint": "eslint \"{src,apps,libs,test}/**/*.{ts,tsx}\"",
@@ -32,6 +33,7 @@
         "jest-environment-jsdom-fourteen": "0.1.0",
         "react-app-rewired": "2.1.3",
         "react-test-renderer": "16.9.0",
+        "shx": "^0.3.3",
         "to-string-loader": "^1.1.6",
         "ts-loader": "^6.2.2",
         "typescript": "^3.9.3",
