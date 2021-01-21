@@ -1,3 +1,10 @@
+## [4.1.2](https://github.com/tecidosbr/gestao-contratos/compare/v4.1.1...v4.1.2) (2021-01-21)
+
+
+### Bug Fixes
+
+* force commit ([2cf317e](https://github.com/tecidosbr/gestao-contratos/commit/2cf317eb72b0d4e40bf75926ab6ccd26cc6bf465))
+
 ## [4.1.1](https://github.com/tecidosbr/gestao-contratos/compare/v4.1.0...v4.1.1) (2021-01-21)
 
 
