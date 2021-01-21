@@ -9,17 +9,17 @@ module.exports = {
       "publishCmd": "lerna version ${nextRelease.version} --no-git-tag-version --yes"
     }],
     ["@semantic-release/exec", {
-      "publishCmd": "shx rm -rf dist && shx mkdir dist"
+      "publishCmd": "shx rm -rf release && shx mkdir release"
     }],
     ["@semantic-release/exec", {
-      "publishCmd": "lerna exec -- node ../../node_modules/npm-pack-all --output ../../dist/"
+      "publishCmd": "lerna exec -- node ../../node_modules/npm-pack-all --output ../../release/"
     }],
     ["@semantic-release/exec", {
-      "publishCmd": "tar2zip dist/*.tgz"
+      "publishCmd": "tar2zip release/*.tgz"
     }],
     "@semantic-release/git"
     ["@semantic-release/github", {
-      "assets": "dist/*",
+      "assets": "release/*",
     }],
   ]
 }
