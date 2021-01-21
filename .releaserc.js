@@ -17,7 +17,9 @@ module.exports = {
     ["@semantic-release/exec", {
       "prepareCmd": "tar2zip release/*.tgz"
     }],
-    "@semantic-release/git",
+    ["@semantic-release/git", {
+      "assets": ["CHANGELOG.md", "lerna.json"],
+    }]
     ["@semantic-release/github", {
       "assets": "release/*",
     }],
