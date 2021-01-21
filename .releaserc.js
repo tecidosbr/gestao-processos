@@ -4,7 +4,7 @@ module.exports = {
     "@semantic-release/release-notes-generator",
     "@semantic-release/changelog",
     ["@semantic-release/exec", {
-      "prepareCmd": "lerna version ${nextRelease.version} --no-git-tag-version --yes"
+      "prepareCmd": "lerna version ${nextRelease.version} --yes --no-git-tag-version"
     }],
     ["@semantic-release/exec", {
       "prepareCmd": "npm version ${nextRelease.version} --git-tag-version=false --allow-same-version"
