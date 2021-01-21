@@ -4,7 +4,10 @@ module.exports = {
     "@semantic-release/release-notes-generator",
     "@semantic-release/changelog",
     ["@semantic-release/exec", {
-      "publishCmd": "lerna exec -- npm version ${nextRelease.version}"
+      "publishCmd": "lerna exec -- npm version ${nextRelease.version} --git-tag-version=false --allow-same-version"
+    }],
+    ["@semantic-release/exec", {
+      "publishCmd": "npm version ${nextRelease.version} --git-tag-version=false --allow-same-version"
     }],
     ["@semantic-release/exec", {
       "publishCmd": "shx rm -rf dist && shx mkdir dist"
