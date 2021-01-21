@@ -15,7 +15,6 @@ module.exports = {
     ["@semantic-release/exec", {
       "publishCmd": "tar2zip dist/*.tgz"
     }],
-    "@semantic-release/git",
     ["@semantic-release/github", {
       "assets": "dist/*",
     }],
