@@ -6,10 +6,7 @@ module.exports = {
     "@semantic-release/release-notes-generator",
     "@semantic-release/changelog",
     ["@semantic-release/exec", {
-      "publishCmd": "lerna exec -- npm version ${nextRelease.version} --git-tag-version=false --allow-same-version"
-    }],
-    ["@semantic-release/exec", {
-      "publishCmd": "npm version ${nextRelease.version} --git-tag-version=false --allow-same-version"
+      "publishCmd": "lerna version ${nextRelease.version} --no-git-tag-version --yes"
     }],
     ["@semantic-release/exec", {
       "publishCmd": "shx rm -rf dist && shx mkdir dist"
@@ -20,9 +17,7 @@ module.exports = {
     ["@semantic-release/exec", {
       "publishCmd": "tar2zip dist/*.tgz"
     }],
-    ["@semantic-release/git", {
-      "assets": ["package.json", "CHANGELOG.md", pkg.workspaces.map(p => `${p}/package.json`)],
-    }],
+    "@semantic-release/git"
     ["@semantic-release/github", {
       "assets": "dist/*",
     }],
