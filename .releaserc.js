@@ -10,6 +10,9 @@ module.exports = {
       "publishCmd": "npm version ${nextRelease.version} --git-tag-version=false --allow-same-version"
     }],
     ["@semantic-release/exec", {
+      "publishCmd": "git add ."
+    }],
+    ["@semantic-release/exec", {
       "publishCmd": "shx rm -rf dist && shx mkdir dist"
     }],
     ["@semantic-release/exec", {
@@ -18,9 +21,7 @@ module.exports = {
     ["@semantic-release/exec", {
       "publishCmd": "tar2zip dist/*.tgz"
     }],
-    ["@semantic-release/git", {
-      "assets": ["**/packages/*/package.json", "CHANGELOG.md"],
-    }],
+    "@semantic-release/git",
     ["@semantic-release/github", {
       "assets": "dist/*",
     }],
