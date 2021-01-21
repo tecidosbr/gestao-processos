@@ -19,7 +19,7 @@ module.exports = {
       "publishCmd": "tar2zip dist/*.tgz"
     }],
     ["@semantic-release/git", {
-      "assets": ["**/package.json", "CHANGELOG.md"],
+      "assets": ["**/packages/*/package.json", "CHANGELOG.md"],
     }],
     ["@semantic-release/github", {
       "assets": "dist/*",
