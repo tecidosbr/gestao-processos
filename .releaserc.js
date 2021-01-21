@@ -7,6 +7,9 @@ module.exports = {
       "prepareCmd": "lerna version ${nextRelease.version} --no-git-tag-version --yes"
     }],
     ["@semantic-release/exec", {
+      "prepareCmd": "npm version ${nextRelease.version} --git-tag-version=false --allow-same-version"
+    }],
+    ["@semantic-release/exec", {
       "prepareCmd": "shx rm -rf release && shx mkdir release"
     }],
     ["@semantic-release/exec", {
@@ -16,7 +19,7 @@ module.exports = {
       "prepareCmd": "tar2zip release/*.tgz"
     }],
     ["@semantic-release/git", {
-      "assets": ["CHANGELOG.md", "lerna.json", "packages/*/package*.json"],
+      "assets": ["CHANGELOG.md", "lerna.json", "package*.json", "packages/*/package*.json"],
     }],
     ["@semantic-release/github", {
       "assets": "release/*",
