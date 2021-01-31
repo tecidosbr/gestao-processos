@@ -9,11 +9,12 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "lerna exec -- npm run build",
-    "coverage": "lerna exec -- npm run coverage",
-    "lint": "lerna exec -- npm run lint",
-    "postinstall": "lerna exec -- npm ci",
-    "release": "npx semantic-release"
+    "build": "lerna run build --parallel",
+    "coverage": "lerna run coverage --parallel",
+    "lint": "lerna run lint --parallel",
+    "postinstall": "lerna exec  --parallel -- npm ci",
+    "release": "npx semantic-release",
+    "start:dev": "lerna run start:dev --parallel"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^5.0.1",

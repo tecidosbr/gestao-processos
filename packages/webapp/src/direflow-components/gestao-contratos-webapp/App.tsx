@@ -1,51 +1,81 @@
-import React, { FC, useContext } from 'react';
-import { EventContext, Styled } from 'direflow-component';
-import styles from './App.css';
+import React, { FunctionComponent, useCallback } from 'react';
+import { useForm } from "react-hook-form";
 
-interface IProps {
-  componentTitle: string;
-  sampleList: string[];
-}
+import { ComiteListDto, OrganismoListDto, IcsListDto } from "../../../../service/src/dto";
+import { useFetchApi } from '../../api';
 
-const App: FC<IProps> = (props) => {
-  const dispatch = useContext(EventContext);
+const bodyStyle = {
+  margin: 0,
+  fontFamily: 'system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
+  fontSize: '1rem',
+  fontWeight: 400,
+  lineHeight: '1.5',
+  color: '#212529'
+};
 
-  const handleClick = () => {
-    const event = new Event('my-event');
-    dispatch(event);
-  };
+const App: FunctionComponent = () => {
+  const { data: organismos } = useFetchApi<OrganismoListDto>('organismo');
+  const { data: comites } = useFetchApi<ComiteListDto>('comite');
+  const { data: icss } = useFetchApi<ComiteListDto>('ics');
 
-  const renderSampleList = props.sampleList.map((sample: string) => (
-    <div key={sample} className='sample-text'>
-      → {sample}
-    </div>
-  ));
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data: any) => console.log(data);
 
   return (
-    <Styled styles={styles}>
-      <div className='app'>
-        <div className='top'>
-          <div className='header-image' />
-        </div>
-        <div className='bottom'>
-          <div className='header-title'>{props.componentTitle}</div>
-          <div>{renderSampleList}</div>
-          <button className='button' onClick={handleClick}>
-            Click me!
-          </button>
+    <div className="container-fluid" style={bodyStyle}>
+      <div className="card">
+        <div className="card-body">
+          <h5 className="card-title">
+            <i className="bi-filter" />
+            <span>Filtros</span>
+          </h5>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="row mb-3">
+              <div className="col col-12">
+                <label>Organismos</label>
+              </div>
+              <div className="col col-12">
+                {organismos?.list?.map(o => (
+                  <div key={o.id} className="form-check m-3" style={{ display: "inline-block" }}>
+                    <label className="form-check-label">
+                      <input ref={register} className="form-check-input" type="checkbox" name="organismos" value={o.id} />
+                      {o.description}
+                    </label>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="row">
+              <div className="mb-3 col col-12 col-md-6">
+                <label className="form-label">Palavra Chave</label>
+                <input ref={register} type="text" className="form-control" />
+              </div>
+              <div className="mb-3 col col-12 col-md-6">
+                <label className="form-label">Comite</label>
+                <input ref={register} className="form-control" list="comites" name="comite" />
+                <datalist id="comites">
+                  {comites?.list?.map(c => (
+                    <option key={c.id} value={c.description} />
+                  ))}
+                </datalist>
+              </div>
+              <div className="mb-3 col col-12 col-md-6">
+                <label className="form-label">ICS/CIN</label>
+                <input ref={register} className="form-control" list="icss" name="ics" />
+                <datalist id="icss">
+                  {icss?.list?.map(c => (
+                    <option key={c.id} value={c.description} />
+                  ))}
+                </datalist>
+              </div>
+            </div>
+            <input type="submit" className="btn btn-primary" value="Buscar" />
+          </form>
         </div>
       </div>
-    </Styled>
+    </div>
   );
 };
 
-App.defaultProps = {
-  componentTitle: 'Webapp Component',
-  sampleList: [
-    'Create with React',
-    'Build as Web Component',
-    'Use it anywhere!',
-  ],
-}
 
 export default App;
