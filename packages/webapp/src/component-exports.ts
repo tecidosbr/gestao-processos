@@ -9,7 +9,7 @@
  * this file can be safely deleted.
  */
 
-import App from './direflow-components/gestao-contratos-webapp/App';
+import App from './direflow-components/gestao-normas-webapp/App';
 
 export { 
   App 

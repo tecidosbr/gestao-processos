@@ -9,12 +9,12 @@
  * It can be left blank if not needed.
  */
 
-import WebappComponent from './direflow-components/gestao-contratos-webapp';
+import WebappComponent from './direflow-components/gestao-normas-webapp';
 
 WebappComponent.then((element) => {
 
   /**
    * Access DOM node when it's mounted
    */
-  console.log('gestao-contratos-webapp is mounted on the DOM', element);
+  console.log('gestao-normas-webapp is mounted on the DOM', element);
 });
