@@ -1,9 +1,0 @@
-{
-  "compilerOptions": {
-    "downlevelIteration": true,
-    "esModuleInterop": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "target": "ES5",
-  }
-}
