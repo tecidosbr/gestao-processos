@@ -63,11 +63,13 @@ const normas: NormaEntity[] = [];
 
         const fileId = new URL(fileUrl).pathname.split('/')[3];
 
-        const dst = buildOutPath(`${filenamify(id, { replacement: '_' })}.pdf`);
+        const downloadDst = buildOutPath(`${filenamify(id, { replacement: '_' })}.pdf`);
+        const downloadUrl = `https://drive.google.com/u/0/uc?id=${fileId}&export=download`;
 
-        if (!fs.existsSync(dst)) {
-          await download(`https://drive.google.com/u/0/uc?id=${fileId}&export=download`, dst);
-        }
+        console.log(`downloadUrl -> ${downloadUrl}`);
+        console.log(`downloadDst -> ${downloadDst}`);
+
+        await download(downloadUrl, downloadDst);
 
         normas.push(norma);
       } catch (e) {
@@ -88,7 +90,10 @@ const buildOutPath = (path) => `/Users/lu20161971/workspace/gestao-normas/packag
 
 async function download(url: string, dest: string) {
   return new Promise<void>((resolve, reject) => {
-    var file = fs.createWriteStream(dest);
+    if (fs.existsSync(dest)) {
+      fs.unlinkSync(dest);
+    }
+    const file = fs.createWriteStream(dest);
     http.get(url, function (response) {
       response.pipe(file);
       file.on('finish', function () {
