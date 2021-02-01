@@ -1,9 +1,12 @@
 import phantom from "phantom";
 import fs from "fs";
+import filenamify from "filenamify";
+import { https as http } from "follow-redirects";
 
-import taxonomyPages from "./taxonomy-pages.json";
-import posts from "./posts.json";
-import { Post } from "@cmnext/types";
+import linksNormas from "./links-normas.json";
+import { NormaEntity } from "../service/src/model";
+
+const normas: NormaEntity[] = [];
 
 (async function () {
   let crawler: phantom.PhantomJS;
@@ -13,78 +16,66 @@ import { Post } from "@cmnext/types";
 
     const page = await crawler.createPage();
 
-    const postsLoadedPreviously = new Set(posts.map(p => p.slug))
+    for (const link of linksNormas) {
+      try {
+        await page.open(link);
 
-    for (const { taxonomy, postPageUrls } of taxonomyPages) {
-      for (const url of postPageUrls) {
-        console.log(url);
+        await new Promise(r => setTimeout(r, 5000));
 
-        const slug: string = /\/([a-z0-9\-_]+)\/$/.exec(url)[1];
-
-        if (postsLoadedPreviously.has(slug)) {
-          continue;
-        }
-
-        postsLoadedPreviously.add(slug);
-
-        await page.open(url);
-
-        await new Promise(r => setTimeout(r, 2_500));
-
-        const title: string = (await page.property("title"))
-          .replace(/^Conta com a gente - /, "")
-          .replace(/ - Conta com a gente$/, "")
-          .replace(/ -$/, "")
-          .replace(/ %$/, "")
-          .trim();
-
-        const thumb: string = await page.evaluate(() =>
-          /url\((.+)\)/.exec(jQuery("header").css("background"))[1].replace('"', '')
-        );
-
-        const content: string = await page.evaluate(() => {
-          const $post = jQuery("div.post");
-          $post.find(".addthis_tool").remove();
-          $post.find(".fb-comments").remove();
-          $post.find("*").removeAttr("style").removeAttr("class");
-          return $post.html().trim();
+        const id = await page.evaluate(function () {
+          return jQuery('#Codigo').parent().next().text();
         });
 
-        const contentRaw: string = await page.evaluate(() => {
-          const $post = jQuery("div.post");
-          $post.find(".addthis_tool").remove();
-          $post.find(".fb-comments").remove();
-          return $post.text().trim();
+        const titulo = await page.evaluate(function () {
+          return jQuery('#Titulo').parent().next().text();
         });
 
-        const excerpt: string = await page.evaluate(() =>
-          jQuery("div.post p").first().text().trim()
-        );
+        const objetivo = await page.evaluate(function () {
+          return jQuery('#Objetivo').parent().next().text();
+        });
 
-        const post: Post = {
-          title,
-          slug,
-          excerpt,
-          content,
-          contentRaw,
-          contentMimeType: 'text/html',
-          type: "blog",
-          meta: {
-            thumb
-          },
-          taxonomies: [
-            taxonomy,
-            { name: "Tecnologia", slug: "tecnologia", type: "blog-tag" },
-            { name: "Banco", slug: "banco", type: "blog-tag" },
-            { name: "Investimentos", slug: "investimentos", type: "blog-tag" },
-          ]
+        const ics = await page.evaluate(function () {
+          return jQuery('#ICSCIN').parent().next().text();
+        });
+
+        const palavrasChave = await page.evaluate(function () {
+          return jQuery('#Palavras-Chave').parent().next().text();
+        });
+
+        const norma: NormaEntity = {
+          id,
+          titulo,
+          objetivo,
+          ics,
+          palavrasChave: palavrasChave.trim().split('\n'),
+        };
+
+        const fileUrl = await page.evaluate(function () {
+          let src = '';
+          jQuery<HTMLIFrameElement>('iframe').each((i, e) => {
+            if (~e.src.indexOf('docs.google.com')) {
+              src = e.src;
+            };
+          });
+          return src;
+        });
+
+
+        const fileId = new URL(fileUrl).pathname.split('/')[3];
+
+        const dst = buildOutPath(`${filenamify(id, { replacement: '_' })}.pdf`);
+
+        if (!fs.existsSync(dst)) {
+          await download(`https://drive.google.com/u/0/uc?id=${fileId}&export=download`, dst);
         }
 
-        posts.push(post);
+        normas.push(norma);
+      } catch (e) {
+        console.log(`skipping ${link} due error: ${e}`);
       }
-
-      fs.writeFileSync('posts.json', JSON.stringify(posts, null, 2));
     }
+
+    fs.writeFileSync(buildOutPath('normas.json'), JSON.stringify(normas, null, 2));
   } catch (e) {
     console.error(e)
   } finally {
@@ -92,3 +83,22 @@ import { Post } from "@cmnext/types";
     process.exit();
   }
 })();
+
+const buildOutPath = (path) => `/Users/lu20161971/workspace/gestao-normas/packages/webcrawler/out/${path}`;
+
+async function download(url: string, dest: string) {
+  return new Promise<void>((resolve, reject) => {
+    var file = fs.createWriteStream(dest);
+    http.get(url, function (response) {
+      response.pipe(file);
+      file.on('finish', function () {
+        file.close();
+        resolve();
+      });
+    }).on('error', function (err) { // Handle errors
+      fs.unlinkSync(dest);
+      reject();
+    });
+  })
+
+};

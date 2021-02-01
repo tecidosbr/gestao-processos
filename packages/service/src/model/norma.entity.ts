@@ -1,6 +1,9 @@
 import { InMemoryDBEntity } from '@nestjs-addons/in-memory-db';
 
-export class ComiteEntity implements InMemoryDBEntity {
+export class NormaEntity implements InMemoryDBEntity {
   public readonly id: string;
-  public readonly description: string;
+  public readonly titulo: string;
+  public readonly objetivo: string;
+  public readonly ics: string;
+  public readonly palavrasChave: string[];
 }
