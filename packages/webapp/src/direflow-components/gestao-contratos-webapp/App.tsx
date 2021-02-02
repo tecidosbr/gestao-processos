@@ -14,64 +14,55 @@ const bodyStyle = {
 };
 
 export const App: FunctionComponent = () => {
-  const [searchNormaDto, setSearchNormaDto] = useState<Partial<SearchNormaDto>>({});
+  const [searchNormaDto, setSearchNormaDto] = useState<Record<keyof SearchNormaDto, string>>({ search: '*', filter: '' }); 
 
-  const { data: organismos } = useFetchApi<OrganismoListDto>('organismo');
-  const { data: comites } = useFetchApi<ComiteListDto>('comite');
   const { data: icss } = useFetchApi<IcsListDto>('ics');
-  const { data: normas } = useFetchApi<NormaListDto>('norma/search', [searchNormaDto]);
+  const { data: normas } = useFetchApi<NormaListDto>(`norma/search?${new URLSearchParams(searchNormaDto)}`);
 
   const { register, handleSubmit, reset } = useForm<{
     palavrasChave: string,
-    comite: string,
+    titulo: string,
     ics: string,
-    organismos: string[],
   }>();
 
-  const onSubmit = (data: any) => {
+  const onSubmit = handleSubmit((data) => {
+    const search: string[] = [];
+    const filters: string[] = [];
+
+    if (data.palavrasChave) {
+      search.push(`palavrasChave: "${data.palavrasChave}"`);
+    }
+
+    if (data.titulo) {
+      search.push(`titulo: "${data.titulo}"`);
+    }
+
+    if (data.ics) {
+      filters.push(`ics eq '${icss?.list.find(e => e.description === data.ics)?.id}'`);
+    }
     setSearchNormaDto({
-      search: '*',
+      search: search.join(' and '),
+      filter: filters.join(' and ')
     });
-    console.log(data);
-  }
+  });
 
   return (
-    <div className="container-fluid" style={bodyStyle}>
-      <div className="card m-3">
+    <div style={bodyStyle}>
+      <div className="card my-3">
         <div className="card-body">
           <h5 className="card-title">
             <i className="bi-filter" />
             <span>Filtros</span>
           </h5>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="row mb-3">
-              <div className="col col-12">
-                <label>Organismos</label>
-              </div>
-              <div className="col col-12">
-                {organismos?.list?.map(o => (
-                  <div key={o.id} className="form-check m-3" style={{ display: "inline-block" }}>
-                    <label className="form-check-label">
-                      <input ref={register} className="form-check-input" type="checkbox" name="organismos" value={o.id} />
-                      {o.description}
-                    </label>
-                  </div>
-                ))}
-              </div>
-            </div>
+          <form onSubmit={onSubmit}>
             <div className="row">
               <div className="mb-3 col col-12 col-md-6">
-                <label className="form-label">Palavra Chave</label>
-                <input ref={register} type="text" className="form-control" name="palavrasChave" />
+                <label className="form-label">Titulo</label>
+                <input ref={register} type="text" className="form-control" name="titulo" />
               </div>
               <div className="mb-3 col col-12 col-md-6">
-                <label className="form-label">Comite</label>
-                <input ref={register} className="form-control" list="comites" name="comite" />
-                <datalist id="comites">
-                  {comites?.list?.map(c => (
-                    <option key={c.id} value={c.description} />
-                  ))}
-                </datalist>
+                <label className="form-label">Palavras Chave</label>
+                <input ref={register} type="text" className="form-control" name="palavrasChave" />
               </div>
               <div className="mb-3 col col-12 col-md-6">
                 <label className="form-label">ICS/CIN</label>
@@ -94,7 +85,7 @@ export const App: FunctionComponent = () => {
           </form>
         </div>
       </div>
-      <div className="card m-3">
+      <div className="card my-3">
         <div className="card-body">
           <div className="table-responsive">
             <table className="table">
@@ -107,12 +98,12 @@ export const App: FunctionComponent = () => {
                 </tr>
               </thead>
               <tbody>
-                {normas?.list.map(n => (
+                {normas?.list?.map(n => (
                   <tr key={n.id}>
                     <th>{n.codigo}</th>
                     <td className="d-none d-md-table-cell">{n.titulo}</td>
                     <td className="d-none d-md-table-cell">{n.palavrasChave.join(', ')}</td>
-                    <td><a type="button" className="btn btn-primary bi-download" target="_blank" rel="noopener noreferrer" href={`https://sigo.file.core.windows.net/gestao-normas/norma/${n.filename}`}/></td>
+                    <td><a type="button" className="btn btn-primary bi-download" target="_blank" rel="noopener noreferrer" href={`https://sigo.blob.core.windows.net/gestao-normas/${n.filename}`} /></td>
                   </tr>
                 ))}
               </tbody>
