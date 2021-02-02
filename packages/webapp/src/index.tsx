@@ -9,7 +9,7 @@
  * It can be left blank if not needed.
  */
 
-import WebappComponent from './direflow-components/gestao-normas-webapp';
+import WebappComponent from './direflow-components/gestao-contratos-webapp';
 
 WebappComponent.then((element) => {
 

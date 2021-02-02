@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export function useFetchApi<T>(path: string) {
+export function useFetchApi<T>(path: string, deps: any[] = []) {
     const [data, setData] = useState<T | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<T | null>(null);
@@ -18,7 +18,7 @@ export function useFetchApi<T>(path: string) {
           setLoading(false);
         }
       })();
-    }, []);
+    }, [path, ...deps]);
   
     return { data, loading, error };
   }

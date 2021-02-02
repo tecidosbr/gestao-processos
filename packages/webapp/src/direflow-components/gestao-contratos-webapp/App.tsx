@@ -1,7 +1,7 @@
-import React, { FunctionComponent, useCallback } from 'react';
+import React, { FunctionComponent, useState } from 'react';
 import { useForm } from "react-hook-form";
 
-import { ComiteListDto, OrganismoListDto, IcsListDto } from "../../../../service/src/dto";
+import { ComiteListDto, OrganismoListDto, IcsListDto, NormaListDto, SearchNormaDto } from "../../../../service/src/dto";
 import { useFetchApi } from '../../api';
 
 const bodyStyle = {
@@ -13,17 +13,31 @@ const bodyStyle = {
   color: '#212529'
 };
 
-const App: FunctionComponent = () => {
+export const App: FunctionComponent = () => {
+  const [searchNormaDto, setSearchNormaDto] = useState<Partial<SearchNormaDto>>({});
+
   const { data: organismos } = useFetchApi<OrganismoListDto>('organismo');
   const { data: comites } = useFetchApi<ComiteListDto>('comite');
-  const { data: icss } = useFetchApi<ComiteListDto>('ics');
+  const { data: icss } = useFetchApi<IcsListDto>('ics');
+  const { data: normas } = useFetchApi<NormaListDto>('norma/search', [searchNormaDto]);
 
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data: any) => console.log(data);
+  const { register, handleSubmit, reset } = useForm<{
+    palavrasChave: string,
+    comite: string,
+    ics: string,
+    organismos: string[],
+  }>();
+
+  const onSubmit = (data: any) => {
+    setSearchNormaDto({
+      search: '*',
+    });
+    console.log(data);
+  }
 
   return (
     <div className="container-fluid" style={bodyStyle}>
-      <div className="card">
+      <div className="card m-3">
         <div className="card-body">
           <h5 className="card-title">
             <i className="bi-filter" />
@@ -48,7 +62,7 @@ const App: FunctionComponent = () => {
             <div className="row">
               <div className="mb-3 col col-12 col-md-6">
                 <label className="form-label">Palavra Chave</label>
-                <input ref={register} type="text" className="form-control" />
+                <input ref={register} type="text" className="form-control" name="palavrasChave" />
               </div>
               <div className="mb-3 col col-12 col-md-6">
                 <label className="form-label">Comite</label>
@@ -69,13 +83,43 @@ const App: FunctionComponent = () => {
                 </datalist>
               </div>
             </div>
-            <input type="submit" className="btn btn-primary" value="Buscar" />
+            <div className="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+              <div className="btn-group me-2">
+                <input type="submit" className="btn btn-primary" value="Buscar" />
+              </div>
+              <div className="btn-group">
+                <button className="btn btn-outline-secondary" onClick={() => reset()}>Limpar</button>
+              </div>
+            </div>
           </form>
+        </div>
+      </div>
+      <div className="card m-3">
+        <div className="card-body">
+          <div className="table-responsive">
+            <table className="table">
+              <thead>
+                <tr>
+                  <th scope="col">Código</th>
+                  <th scope="col" className="d-none d-md-table-cell">Titulo</th>
+                  <th scope="col" className="d-none d-md-table-cell">Palavras Chave</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                {normas?.list.map(n => (
+                  <tr key={n.id}>
+                    <th>{n.codigo}</th>
+                    <td className="d-none d-md-table-cell">{n.titulo}</td>
+                    <td className="d-none d-md-table-cell">{n.palavrasChave.join(', ')}</td>
+                    <td><a type="button" className="btn btn-primary bi-download" target="_blank" rel="noopener noreferrer" href={`https://sigo.file.core.windows.net/gestao-normas/norma/${n.filename}`}/></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
   );
 };
-
-
-export default App;
