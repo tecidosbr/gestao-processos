@@ -1,6 +1,6 @@
-# gestao-normas
+# gestao-processos
 
-![Build](https://github.com/tecidosbr/gestao-normas-service/workflows/DevOps%20Pipeline/badge.svg?branch=master)
+![Build](https://github.com/tecidosbr/gestao-processos-service/workflows/DevOps%20Pipeline/badge.svg?branch=master)
 [![Maintainability](https://api.codeclimate.com/v1/badges/75e2d10e0ea5e2f235e4/maintainability)](https://codeclimate.com/repos/60078c0898485d018d004e57/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/75e2d10e0ea5e2f235e4/test_coverage)](https://codeclimate.com/repos/60078c0898485d018d004e57/test_coverage)
 

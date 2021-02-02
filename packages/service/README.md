@@ -1,4 +1,4 @@
-# gestao-normas-service
+# gestao-processos-service
 
 ## Installation
 
