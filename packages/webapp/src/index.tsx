@@ -1,20 +1,17 @@
-/**
- * This is the entry file of the Direflow setup.
- *
- * You can add any additional functionality here.
- * For example, this is a good place to hook into your
- * Web Component once it's mounted on the DOM.
- *
- * !This file cannot be removed.
- * It can be left blank if not needed.
- */
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
 
-import WebappComponent from './direflow-components/gestao-contratos-webapp';
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
 
-WebappComponent.then((element) => {
-
-  /**
-   * Access DOM node when it's mounted
-   */
-  console.log('gestao-processos-webapp is mounted on the DOM', element);
-});
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
