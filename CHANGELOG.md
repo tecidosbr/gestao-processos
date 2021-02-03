@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/tecidosbr/gestao-processos/compare/v1.0.5...v1.0.6) (2021-02-03)
+
+
+### Bug Fixes
+
+* web.config ([b0b7574](https://github.com/tecidosbr/gestao-processos/commit/b0b757431f346e7db172c1d0a901eae38bb11296))
+
 ## [1.0.5](https://github.com/tecidosbr/gestao-processos/compare/v1.0.4...v1.0.5) (2021-02-03)
 
 
