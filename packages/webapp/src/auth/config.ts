@@ -5,7 +5,7 @@ export const config: Configuration = {
     clientId: "c00fc82c-7f41-427a-b82c-e0fccf6ce43a",
   },
   cache: {
-    cacheLocation: "localStorage",
+    cacheLocation: "sessionStorage",
     storeAuthStateInCookie: false,
   },
   system: {
