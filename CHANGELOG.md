@@ -1,3 +1,11 @@
+## [1.0.2](https://github.com/tecidosbr/gestao-processos/compare/v1.0.1...v1.0.2) (2021-02-03)
+
+
+### Bug Fixes
+
+* add missing dependency ([5b168af](https://github.com/tecidosbr/gestao-processos/commit/5b168af8db5966e72eaa6715145c77e7235be319))
+* dependencies ([f22076a](https://github.com/tecidosbr/gestao-processos/commit/f22076a1df77947470756e951d0a0f67ef8157e7))
+
 ## [1.0.1](https://github.com/tecidosbr/gestao-processos/compare/v1.0.0...v1.0.1) (2021-02-03)
 
 
