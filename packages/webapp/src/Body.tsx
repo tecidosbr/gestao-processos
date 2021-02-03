@@ -20,11 +20,11 @@ export const Body = withRouter(({ history }) => {
 });
 
 declare global {
-    namespace JSX {
+  namespace JSX {
     interface IntrinsicElements {
       'gestao-contratos-webapp': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
       'gestao-normas-webapp': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
       'gestao-processos-webapp': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
+    }
   }
-}
 }
