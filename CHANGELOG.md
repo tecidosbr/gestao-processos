@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/tecidosbr/gestao-processos/compare/v1.0.7...v1.1.0) (2021-02-03)
+
+
+### Features
+
+* add web component ([be2627a](https://github.com/tecidosbr/gestao-processos/commit/be2627a5418cae952671cab2ee92ee3690617e04))
+
 ## [1.0.7](https://github.com/tecidosbr/gestao-processos/compare/v1.0.6...v1.0.7) (2021-02-03)
 
 
