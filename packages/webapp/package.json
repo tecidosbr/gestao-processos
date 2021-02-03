@@ -17,6 +17,13 @@
         "react-router-dom": "^5.2.0",
         "web-vitals": "^0.2.4"
     },
+    "bundledDependencies": [
+        "@azure/msal-browser",
+        "react",
+        "react-dom",
+        "react-router-dom",
+        "web-vitals"
+    ],
     "devDependencies": {
         "@testing-library/jest-dom": "^5.11.9",
         "@testing-library/react": "^11.2.5",

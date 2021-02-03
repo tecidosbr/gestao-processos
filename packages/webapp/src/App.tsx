@@ -19,7 +19,7 @@ export const App: React.FC = () => {
 declare global {
         namespace JSX {
         interface IntrinsicElements {
-        'gestao-contratos': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
+          'gestao-contratos': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
           'gestao-normas': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
           'gestao-processos': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
       }

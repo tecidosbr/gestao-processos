@@ -21,7 +21,7 @@ const msal = new PublicClientApplication(config);
 
 export const AuthenticationContextProvider: React.FunctionComponent<React.PropsWithChildren<{}>> = (props) => {
   const [account, setAccount] = React.useState<AccountInfo | null>(null);
-  const [accessToken, setAcessToken] = React.useState<string | null>(null);
+  const [accessToken, setAccessToken] = React.useState<string | null>(null);
 
   React.useEffect(() => {
     const [account = null] = msal.getAllAccounts() ?? null;
@@ -30,10 +30,10 @@ export const AuthenticationContextProvider: React.FunctionComponent<React.PropsW
 
   React.useEffect(() => {
     if (!account && accessToken) {
-      setAcessToken(null);
+      setAccessToken(null);
     } else if (account && !accessToken) {
       msal.acquireTokenSilent({ scopes: [], account }).then((response) => {
-        setAcessToken(response.accessToken);
+        setAccessToken(response.accessToken);
       });
     }
   }, [account, accessToken]);
@@ -47,14 +47,15 @@ export const AuthenticationContextProvider: React.FunctionComponent<React.PropsW
         const previousAccount = previousLoginResponse?.account ?? msal.getActiveAccount();
         if (previousAccount) {
           setAccount(previousAccount);
-          setAcessToken(previousLoginResponse?.accessToken ?? null);
+          setAccessToken(previousLoginResponse?.accessToken ?? null);
         } else {
           const { account, accessToken } = await msal.loginPopup({
             scopes: [],
             prompt: "select_account",
+            redirectUri: "/",
           });
-          setAccount(account);
-          setAcessToken(accessToken);
+          setAccount(account ?? msal.getActiveAccount());
+          setAccessToken(accessToken);
         }
       }
     },
