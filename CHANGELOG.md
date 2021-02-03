@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/tecidosbr/gestao-processos/compare/v1.0.2...v1.0.3) (2021-02-03)
+
+
+### Bug Fixes
+
+* website name ([052418b](https://github.com/tecidosbr/gestao-processos/commit/052418b9b5538f9a4a3510acc63ddbd40c9d782b))
+
 ## [1.0.2](https://github.com/tecidosbr/gestao-processos/compare/v1.0.1...v1.0.2) (2021-02-03)
 
 
