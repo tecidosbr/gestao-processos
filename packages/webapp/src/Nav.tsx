@@ -53,7 +53,7 @@ export const Nav: React.FC = () => {
 
 const LogInButton: React.FC = () => {
     const ctx = React.useContext(AuthenticationContext);
-    const logIn = React.useCallback(() => ctx.login(), []);
+    const logIn = React.useCallback(() => ctx.login(), [ctx]);
     return (
         <button className="btn btn-primary" onClick={logIn}>Log&nbsp;in</button>
     );
@@ -61,7 +61,7 @@ const LogInButton: React.FC = () => {
 
 const LogOutButton: React.FC = () => {
     const ctx = React.useContext(AuthenticationContext);
-    const logOut = React.useCallback(() => ctx.logout(), []);
+    const logOut = React.useCallback(() => ctx.logout(), [ctx]);
     return (
         <button className="btn btn-outline-primary" onClick={logOut}>Log&nbsp;out</button>
     );

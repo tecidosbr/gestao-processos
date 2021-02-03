@@ -3,14 +3,14 @@ import { PublicClientApplication, AccountInfo } from "@azure/msal-browser";
 
 import { config } from "./config";
 
-export interface AuthenticationContext {
+export interface IAuthenticationContext {
   readonly account: AccountInfo | null;
   readonly accessToken: string | null;
   readonly login: () => Promise<void>;
   readonly logout: () => Promise<void>;
 }
 
-export const AuthenticationContext = React.createContext<AuthenticationContext>({
+export const AuthenticationContext = React.createContext<IAuthenticationContext>({
   account: null,
   accessToken: null,
   login: async () => void 0,
@@ -38,33 +38,33 @@ export const AuthenticationContextProvider: React.FunctionComponent<React.PropsW
     }
   }, [account, accessToken]);
 
-  const login = async () => {
-    if (!account) {
-      const previousLoginResponse = await msal.handleRedirectPromise();
-      const previousAccount = previousLoginResponse?.account ?? msal.getActiveAccount();
-      if (previousAccount) {
-        setAccount(previousAccount);
-        setAcessToken(previousLoginResponse?.accessToken ?? null);
-      } else {
-        const { account, accessToken } = await msal.loginPopup({
-          scopes: [],
-          prompt: "select_account",
-        });
-        setAccount(account);
-        setAcessToken(accessToken);
+  const value = React.useMemo<IAuthenticationContext>(() => ({ 
+    account,
+    accessToken,
+    async login () {
+      if (!account) {
+        const previousLoginResponse = await msal.handleRedirectPromise();
+        const previousAccount = previousLoginResponse?.account ?? msal.getActiveAccount();
+        if (previousAccount) {
+          setAccount(previousAccount);
+          setAcessToken(previousLoginResponse?.accessToken ?? null);
+        } else {
+          const { account, accessToken } = await msal.loginPopup({
+            scopes: [],
+            prompt: "select_account",
+          });
+          setAccount(account);
+          setAcessToken(accessToken);
+        }
+      }
+    },
+    async logout() {
+      if (account) {
+        await msal.logout({ account });
+        setAccount(null);
       }
     }
-  };
-
-  const logout = async () => {
-    if (account) {
-      await msal.logout({ account });
-      setAccount(null);
-    }
-  };
-
-  const token = '';
-  const value = React.useMemo<AuthenticationContext>(() => ({ account, accessToken, login, logout }), [account, accessToken])
+  }), [account, accessToken])
 
   return (
     <AuthenticationContext.Provider value={value}>

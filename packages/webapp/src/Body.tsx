@@ -9,7 +9,7 @@ export const Body = withRouter(({ history }) => {
         if (!authCtx.account) {
             history.push('/');
         }
-    }, [authCtx.account]);
+    }, [authCtx.account, history]);
 
     return (
         <div className="container-fluid">
