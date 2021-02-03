@@ -15,13 +15,3 @@ export const App: React.FC = () => {
     </AuthenticationContextProvider>
   );
 }
-
-declare global {
-        namespace JSX {
-        interface IntrinsicElements {
-          'gestao-contratos': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
-          'gestao-normas': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
-          'gestao-processos': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
-      }
-  }
-}
