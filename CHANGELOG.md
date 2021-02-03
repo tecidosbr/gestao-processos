@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/tecidosbr/gestao-processos/compare/v1.0.0...v1.0.1) (2021-02-03)
+
+
+### Bug Fixes
+
+* pipeline ([e70175b](https://github.com/tecidosbr/gestao-processos/commit/e70175b200aa42817a4ba32a36a5518d7b5a76d1))
+
 # 1.0.0 (2021-02-03)
 
 
