@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/tecidosbr/gestao-processos/compare/v1.0.4...v1.0.5) (2021-02-03)
+
+
+### Bug Fixes
+
+* add redirect rule ([2b9acf8](https://github.com/tecidosbr/gestao-processos/commit/2b9acf811cd277cd686ae17835ce4fd611ddc4f2))
+
 ## [1.0.4](https://github.com/tecidosbr/gestao-processos/compare/v1.0.3...v1.0.4) (2021-02-03)
 
 
