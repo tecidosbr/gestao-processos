@@ -1,3 +1,12 @@
+## [1.3.3](https://github.com/tecidosbr/gestao-processos/compare/v1.3.2...v1.3.3) (2021-02-04)
+
+
+### Bug Fixes
+
+* ci pipeline ([3e54b0f](https://github.com/tecidosbr/gestao-processos/commit/3e54b0fab69dcabfff5bd9ec0a4127fc24157a59))
+* deploy pipeline ([e9d2ea5](https://github.com/tecidosbr/gestao-processos/commit/e9d2ea55fde7b000bc1b8fe14aa6770f67f03749))
+* use npm-bundle ([c27b05e](https://github.com/tecidosbr/gestao-processos/commit/c27b05eb93edffe16e3230070306136e0f88b806))
+
 ## [1.3.2](https://github.com/tecidosbr/gestao-processos/compare/v1.3.1...v1.3.2) (2021-02-04)
 
 
