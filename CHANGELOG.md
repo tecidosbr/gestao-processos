@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/tecidosbr/gestao-processos/compare/v1.3.0...v1.3.1) (2021-02-04)
+
+
+### Bug Fixes
+
+* revert "feat: change authLevel" ([8197bc3](https://github.com/tecidosbr/gestao-processos/commit/8197bc3423975a7e7f4130328bac52dd4cc1dcf3))
+
 # [1.3.0](https://github.com/tecidosbr/gestao-processos/compare/v1.2.0...v1.3.0) (2021-02-04)
 
 
