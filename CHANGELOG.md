@@ -1,3 +1,11 @@
+## [1.3.2](https://github.com/tecidosbr/gestao-processos/compare/v1.3.1...v1.3.2) (2021-02-04)
+
+
+### Bug Fixes
+
+* enhance production dependencies ([72e9dae](https://github.com/tecidosbr/gestao-processos/commit/72e9dae476c114dd7e56419250aa504b96cf26e2))
+* ignore coverage on pack ([1c1eef9](https://github.com/tecidosbr/gestao-processos/commit/1c1eef971a9e09ab84b8986312e17de4be324043))
+
 ## [1.3.1](https://github.com/tecidosbr/gestao-processos/compare/v1.3.0...v1.3.1) (2021-02-04)
 
 
