@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/tecidosbr/gestao-processos/compare/v1.3.3...v1.4.0) (2021-02-04)
+
+
+### Features
+
+* use azure frontdoor to load bundle ([49cfdeb](https://github.com/tecidosbr/gestao-processos/commit/49cfdeb0680e3ac4db2730e661031072cb6cd4b2))
+
 ## [1.3.3](https://github.com/tecidosbr/gestao-processos/compare/v1.3.2...v1.3.3) (2021-02-04)
 
 
