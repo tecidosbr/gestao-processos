@@ -1,3 +1,16 @@
+# [1.2.0](https://github.com/tecidosbr/gestao-processos/compare/v1.1.0...v1.2.0) (2021-02-04)
+
+
+### Bug Fixes
+
+* build env ([2012312](https://github.com/tecidosbr/gestao-processos/commit/2012312ef08297447bbe987907550b695a9288d3))
+* node env ([7dfd222](https://github.com/tecidosbr/gestao-processos/commit/7dfd222ff8f0cec25f327d80f04e0ed0f81e4e91))
+
+
+### Features
+
+* format source ([0be8339](https://github.com/tecidosbr/gestao-processos/commit/0be8339c6493acf12461b1b3b1030621bf4ca532))
+
 # [1.1.0](https://github.com/tecidosbr/gestao-processos/compare/v1.0.7...v1.1.0) (2021-02-03)
 
 
