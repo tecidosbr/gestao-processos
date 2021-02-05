@@ -1,3 +1,11 @@
+# [1.5.0](https://github.com/tecidosbr/gestao-processos/compare/v1.4.0...v1.5.0) (2021-02-05)
+
+
+### Features
+
+* add data ([6bbe4e9](https://github.com/tecidosbr/gestao-processos/commit/6bbe4e9d3f8570c4b24115d4d485e801784f5cc7))
+* add data access info ([ef72a99](https://github.com/tecidosbr/gestao-processos/commit/ef72a99559122582e2849c6bcb0f64973767ded6))
+
 # [1.4.0](https://github.com/tecidosbr/gestao-processos/compare/v1.3.3...v1.4.0) (2021-02-04)
 
 

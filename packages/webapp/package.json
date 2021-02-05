@@ -1,7 +1,7 @@
 {
   "name": "gestao-processos-webapp",
   "description": "",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "private": true,
   "scripts": {
     "build": "react-scripts build",
@@ -20,6 +20,7 @@
   },
   "bundledDependencies": [
     "@azure/msal-browser",
+    "jwt-decode",
     "react",
     "react-dom",
     "react-router-dom",
