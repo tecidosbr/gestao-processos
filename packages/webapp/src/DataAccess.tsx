@@ -17,7 +17,7 @@ export const DataAccess: React.FC = () => {
               </tr>
               <tr>
                 <th scope="row">Banco de Dados</th>
-                <td style={{ overflowWrap: "anywhere" }}>gestao-normas-db</td>
+                <td style={{ overflowWrap: "anywhere" }}>gestao-processos-db</td>
               </tr>
               <tr>
                 <th scope="row">Usuário</th>
