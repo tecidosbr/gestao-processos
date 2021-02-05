@@ -1,27 +1,40 @@
 import React from "react";
 import { PublicClientApplication, AccountInfo } from "@azure/msal-browser";
-
+import jwt from "jwt-decode";
 import { config } from "./config";
 
-export interface IAuthenticationContext {
+interface IdTokenDecoded {
+  groups: string;
+}
+interface AccessTokenDecoded {
+  family_name: string;
+  given_name: string;
+}
+export interface IAuthContext {
   readonly account: AccountInfo | null;
-  readonly accessToken: string | null;
+  readonly idToken: string | null;
+  readonly idTokenDecoded: IdTokenDecoded | null;
+  readonly accessTokenDecoded: AccessTokenDecoded |  null;
   readonly login: () => Promise<void>;
   readonly logout: () => Promise<void>;
 }
 
-export const AuthenticationContext = React.createContext<IAuthenticationContext>({
+export const AuthContext = React.createContext<IAuthContext>({
   account: null,
-  accessToken: null,
+  idToken: null,
+  idTokenDecoded: null,
+  accessTokenDecoded: null,
   login: async () => void 0,
   logout: async () => void 0
 });
 
 const msal = new PublicClientApplication(config);
 
-export const AuthenticationContextProvider: React.FunctionComponent<React.PropsWithChildren<{}>> = (props) => {
+export const AuthContextProvider: React.FunctionComponent<React.PropsWithChildren<{}>> = (props) => {
   const [account, setAccount] = React.useState<AccountInfo | null>(null);
-  const [accessToken, setAccessToken] = React.useState<string | null>(null);
+  const [idToken, setIdToken] = React.useState<string | null>(null);
+  const [idTokenDecoded, setIdTokenDecoded] = React.useState<IdTokenDecoded | null>(null);
+  const [accessTokenDecoded, setAccessTokenDecoded] = React.useState<any>(null);
 
   React.useEffect(() => {
     const [account = null] = msal.getAllAccounts() ?? null;
@@ -29,33 +42,43 @@ export const AuthenticationContextProvider: React.FunctionComponent<React.PropsW
   }, []);
 
   React.useEffect(() => {
-    if (!account && accessToken) {
-      setAccessToken(null);
-    } else if (account && !accessToken) {
+    if (!account && idToken) {
+      setIdToken(null);
+      setIdTokenDecoded(null);
+      setAccessTokenDecoded(null);
+    } else if (account && !idToken) {
       msal.acquireTokenSilent({ scopes: [], account }).then((response) => {
-        setAccessToken(response.accessToken);
+        setIdToken(response.idToken);
+        setIdTokenDecoded(jwt(response.idToken));
+        setAccessTokenDecoded(jwt(response.accessToken));
       });
     }
-  }, [account, accessToken]);
-
-  const value = React.useMemo<IAuthenticationContext>(() => ({ 
+  }, [account, idToken]);
+  console.log(idTokenDecoded);
+  console.log(accessTokenDecoded);
+  const value = React.useMemo<IAuthContext>(() => ({
     account,
-    accessToken,
-    async login () {
+    idToken,
+    idTokenDecoded,
+    accessTokenDecoded,
+    async login() {
       if (!account) {
         const previousLoginResponse = await msal.handleRedirectPromise();
         const previousAccount = previousLoginResponse?.account ?? msal.getActiveAccount();
         if (previousAccount) {
           setAccount(previousAccount);
-          setAccessToken(previousLoginResponse?.accessToken ?? null);
+          setIdToken(previousLoginResponse?.idToken ?? null);
+          setIdTokenDecoded(previousLoginResponse?.idToken ? jwt(previousLoginResponse.idToken) : null);
+          setAccessTokenDecoded(previousLoginResponse?.accessToken ? jwt(previousLoginResponse.accessToken) : null);
         } else {
-          const { account, accessToken } = await msal.loginPopup({
+          const { account, idToken, accessToken } = await msal.loginPopup({
             scopes: [],
             prompt: "select_account",
             redirectUri: "/",
           });
           setAccount(account ?? msal.getActiveAccount());
-          setAccessToken(accessToken);
+          setIdToken(idToken);
+          setAccessTokenDecoded(jwt(accessToken));
         }
       }
     },
@@ -63,13 +86,15 @@ export const AuthenticationContextProvider: React.FunctionComponent<React.PropsW
       if (account) {
         await msal.logout({ account });
         setAccount(null);
+        setIdToken(null);
+        setAccessTokenDecoded(null);
       }
     }
-  }), [account, accessToken])
+  }), [account, idToken, idTokenDecoded, accessTokenDecoded])
 
   return (
-    <AuthenticationContext.Provider value={value}>
+    <AuthContext.Provider value={value}>
       {props.children}
-    </AuthenticationContext.Provider>
+    </AuthContext.Provider>
   );
 }

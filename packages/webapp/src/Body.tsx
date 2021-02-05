@@ -1,30 +1,49 @@
 import React from 'react';
 import { Switch, Route, withRouter } from "react-router-dom";
+import { AuthContext } from './auth';
+import { NotFound } from './NotFound';
+import { Welcome } from './Welcome';
 
-export const Body = withRouter(({ history }) => {
+export const Body = withRouter(() => {
+    const auth = React.useContext(AuthContext);
+
+    if (!auth.account) {
+        return <Welcome />;
+    }
+
     return (
         <div className="container-fluid">
             <Switch>
-                <Route path="/gestao-normas">
+                <Route path="/" exact>
+                    <Welcome />
+                </Route>
+                <Route path="/gestao-normas" exact>
                     <gestao-normas-webapp />
                 </Route>
-                <Route path="/gestao-processos">
-                    <gestao-processos-webapp />
+                <Route path="/gestao-processos" exact>
+                    {auth.idTokenDecoded?.groups.includes("408f52cf-93cd-4610-b703-1b1d8075d4ea")
+                        ? <gestao-processos-webapp />
+                        : <NotFound />}
                 </Route>
-                <Route path="/gestao-contratos">
-                    <gestao-contratos-webapp />
+                <Route path="/gestao-contratos" exact>
+                    {auth.idTokenDecoded?.groups.includes("408f52cf-93cd-4610-b703-1b1d8075d4ea")
+                        ? <gestao-contratos-webapp />
+                        : <NotFound />}
+                </Route>
+                <Route>
+                    <NotFound />
                 </Route>
             </Switch>
-        </div>
+        </div >
     );
 });
 
 declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      'gestao-contratos-webapp': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
-      'gestao-normas-webapp': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
-      'gestao-processos-webapp': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
+    namespace JSX {
+        interface IntrinsicElements {
+            'gestao-contratos-webapp': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
+            'gestao-normas-webapp': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
+            'gestao-processos-webapp': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
+        }
     }
-  }
 }

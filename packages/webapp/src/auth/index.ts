@@ -1,2 +1,2 @@
-export { AuthenticationContext, AuthenticationContextProvider } from "./context";
-export type { IAuthenticationContext } from "./context";
+export { AuthContext, AuthContextProvider } from "./context";
+export type { IAuthContext } from "./context";
