@@ -1,3 +1,11 @@
+## [1.5.1](https://github.com/tecidosbr/gestao-processos/compare/v1.5.0...v1.5.1) (2021-02-05)
+
+
+### Bug Fixes
+
+* db name ([43d7fcb](https://github.com/tecidosbr/gestao-processos/commit/43d7fcb0bb894e85948ee5bbface838c279b189f))
+* dependabot ([1ae1c4b](https://github.com/tecidosbr/gestao-processos/commit/1ae1c4bb53e964a0ef06630d75f5b418b2c6c996))
+
 # [1.5.0](https://github.com/tecidosbr/gestao-processos/compare/v1.4.0...v1.5.0) (2021-02-05)
 
 
