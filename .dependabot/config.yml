@@ -7,7 +7,7 @@ update_configs:
       prefix: "chore"
       include_scope: true
   - package_manager: "javascript"
-    directory: "/packages/webapp"
+    directory: "/packages/service"
     update_schedule: "weekly"
     commit_message:
       prefix: "chore"
