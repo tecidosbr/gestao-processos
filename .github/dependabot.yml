@@ -1,0 +1,44 @@
+Home
+Add repos
+
+tecidosbr
+gestao-contratos
+Create config file
+‎/package.json‎
+checking now, hold tight!
+
+Bump now
+‎/packages/webapp/package.json‎
+checking now, hold tight!
+
+Bump now
+‎/packages/service/package.json‎
+checking now, hold tight!
+
+Bump now
++ Add a language / directory
+Create config file (beta)
+
+Dependabot is moving natively into GitHub, and we need a quick update from you to finish the move! Click "Create pull request" to open a pull request on gestao-contratos with a new config file. When you merge the pull request, we'll swap outdependabot-preview for a new dependabot app, and you'll be all set.
+
+The pull request moves the UI configuration to a config file in.github/dependabot.yml. The config file uses the new syntax:
+
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+
+  - package-ecosystem: npm
+  directory: "/packages/service"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+
+- package-ecosystem: npm
+  directory: "/packages/webapp"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
