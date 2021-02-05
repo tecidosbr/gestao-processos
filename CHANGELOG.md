@@ -1,3 +1,15 @@
+# [1.6.0](https://github.com/tecidosbr/gestao-processos/compare/v1.5.1...v1.6.0) (2021-02-05)
+
+
+### Bug Fixes
+
+* npm ([5003768](https://github.com/tecidosbr/gestao-processos/commit/50037688ad098d37df3e4f4c0f60ef5f0c513423))
+
+
+### Features
+
+* update dependabot ([8cbad72](https://github.com/tecidosbr/gestao-processos/commit/8cbad72120b32e03eb47b76ae6893347ea8c4c74))
+
 ## [1.5.1](https://github.com/tecidosbr/gestao-processos/compare/v1.5.0...v1.5.1) (2021-02-05)
 
 
