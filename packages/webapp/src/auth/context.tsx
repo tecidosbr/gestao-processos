@@ -54,8 +54,6 @@ export const AuthContextProvider: React.FunctionComponent<React.PropsWithChildre
       });
     }
   }, [account, idToken]);
-  console.log(idTokenDecoded);
-  console.log(accessTokenDecoded);
   const value = React.useMemo<IAuthContext>(() => ({
     account,
     idToken,

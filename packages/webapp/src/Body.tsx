@@ -3,6 +3,7 @@ import { Switch, Route, withRouter } from "react-router-dom";
 import { AuthContext } from './auth';
 import { NotFound } from './NotFound';
 import { Welcome } from './Welcome';
+import { DataAccess } from './DataAccess';
 
 export const Body = withRouter(() => {
     const auth = React.useContext(AuthContext);
@@ -22,7 +23,7 @@ export const Body = withRouter(() => {
                 </Route>
                 <Route path="/gestao-processos" exact>
                     {auth.idTokenDecoded?.groups.includes("408f52cf-93cd-4610-b703-1b1d8075d4ea")
-                        ? <gestao-processos-webapp />
+                        ? <DataAccess />
                         : <NotFound />}
                 </Route>
                 <Route path="/gestao-contratos" exact>
