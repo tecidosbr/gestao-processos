@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/tecidosbr/gestao-processos/compare/v1.7.4...v1.8.0) (2021-02-06)
+
+
+### Features
+
+* enhance itToken usage ([0d65fac](https://github.com/tecidosbr/gestao-processos/commit/0d65fac9b9cf1bf11cfa1f3b5244ba656c7bbbec))
+
 ## [1.7.4](https://github.com/tecidosbr/gestao-processos/compare/v1.7.3...v1.7.4) (2021-02-06)
 
 
