@@ -1,3 +1,10 @@
+## [1.7.2](https://github.com/tecidosbr/gestao-processos/compare/v1.7.1...v1.7.2) (2021-02-06)
+
+
+### Bug Fixes
+
+* bundle location ([d884b3c](https://github.com/tecidosbr/gestao-processos/commit/d884b3c571b4d9836e242321803e7d190fc72483))
+
 ## [1.7.1](https://github.com/tecidosbr/gestao-processos/compare/v1.7.0...v1.7.1) (2021-02-06)
 
 
