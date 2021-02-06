@@ -1,3 +1,11 @@
+## [1.7.4](https://github.com/tecidosbr/gestao-processos/compare/v1.7.3...v1.7.4) (2021-02-06)
+
+
+### Bug Fixes
+
+* ci ([306e22f](https://github.com/tecidosbr/gestao-processos/commit/306e22f9c26483817c89834784b554c2f214a2ac))
+* release ([a664426](https://github.com/tecidosbr/gestao-processos/commit/a664426e0adead78ed36ea613a06dfb6fe991dd5))
+
 ## [1.7.3](https://github.com/tecidosbr/gestao-processos/compare/v1.7.2...v1.7.3) (2021-02-06)
 
 
