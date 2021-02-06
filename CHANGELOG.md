@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/tecidosbr/gestao-processos/compare/v1.6.3...v1.7.0) (2021-02-06)
+
+
+### Features
+
+* save idToken ([2f29d68](https://github.com/tecidosbr/gestao-processos/commit/2f29d68f002b585a83470210a89c64fb3ceb1740))
+
 ## [1.6.3](https://github.com/tecidosbr/gestao-processos/compare/v1.6.2...v1.6.3) (2021-02-06)
 
 
