@@ -1,3 +1,11 @@
+## [1.6.3](https://github.com/tecidosbr/gestao-processos/compare/v1.6.2...v1.6.3) (2021-02-06)
+
+
+### Bug Fixes
+
+* cleanup ([90b9144](https://github.com/tecidosbr/gestao-processos/commit/90b91445c7ee67c264d19c2fbf4da729dc6e6132))
+* lint issues ([4419af1](https://github.com/tecidosbr/gestao-processos/commit/4419af192c3ea87fba4860189a3803fab5531171))
+
 ## [1.6.2](https://github.com/tecidosbr/gestao-processos/compare/v1.6.1...v1.6.2) (2021-02-06)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "gestao-processos-service",
-  "version": "1.6.2",
+  "version": "1.6.3",
   "description": "",
   "author": "",
   "private": true,
@@ -94,14 +94,12 @@
   },
   "bundledDependencies": [
     "@azure/functions",
-    "@nestjs-addons/in-memory-db",
     "@nestjs/azure-func-http",
     "@nestjs/common",
     "@nestjs/core",
     "@nestjs/platform-express",
     "@nestjs/swagger",
     "@nestjs/terminus",
-    "axios",
     "reflect-metadata"
   ]
 }
