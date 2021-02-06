@@ -1,3 +1,10 @@
+## [1.6.2](https://github.com/tecidosbr/gestao-processos/compare/v1.6.1...v1.6.2) (2021-02-06)
+
+
+### Bug Fixes
+
+* dependabot cfg ([172fdea](https://github.com/tecidosbr/gestao-processos/commit/172fdeaae214b66f92ed169ea2061271e38fb0bc))
+
 ## [1.6.1](https://github.com/tecidosbr/gestao-processos/compare/v1.6.0...v1.6.1) (2021-02-05)
 
 
