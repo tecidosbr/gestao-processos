@@ -42,7 +42,7 @@ export const AuthContextProvider: React.FunctionComponent<React.PropsWithChildre
   }, []);
 
   React.useEffect(() => {
-    sessionStorage.setItem('idToken', JSON.stringify(idToken));
+    sessionStorage.setItem('idToken', idToken ?? '');
   }, [idToken]);
 
   React.useEffect(() => {
