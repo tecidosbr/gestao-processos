@@ -1,3 +1,10 @@
+## [1.7.1](https://github.com/tecidosbr/gestao-processos/compare/v1.7.0...v1.7.1) (2021-02-06)
+
+
+### Bug Fixes
+
+* idToken persistence ([8705d5c](https://github.com/tecidosbr/gestao-processos/commit/8705d5c68b680231c80b23e07cb2091a63833d2c))
+
 # [1.7.0](https://github.com/tecidosbr/gestao-processos/compare/v1.6.3...v1.7.0) (2021-02-06)
 
 
