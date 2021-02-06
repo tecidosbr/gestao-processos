@@ -19,7 +19,7 @@ export const Body = withRouter(() => {
                     <Welcome />
                 </Route>
                 <Route path="/gestao-normas" exact>
-                    <gestao-normas-webapp />
+                    <gestao-normas-webapp  idToken={auth.idToken ?? ''}/>
                 </Route>
                 <Route path="/gestao-processos" exact>
                     {auth.idTokenDecoded?.groups.includes("408f52cf-93cd-4610-b703-1b1d8075d4ea")
@@ -28,7 +28,7 @@ export const Body = withRouter(() => {
                 </Route>
                 <Route path="/gestao-contratos" exact>
                     {auth.idTokenDecoded?.groups.includes("408f52cf-93cd-4610-b703-1b1d8075d4ea")
-                        ? <gestao-contratos-webapp />
+                        ? <gestao-contratos-webapp idToken={auth.idToken ?? ''} />
                         : <NotFound />}
                 </Route>
                 <Route>
@@ -42,9 +42,8 @@ export const Body = withRouter(() => {
 declare global {
     namespace JSX {
         interface IntrinsicElements {
-            'gestao-contratos-webapp': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
-            'gestao-normas-webapp': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
-            'gestao-processos-webapp': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
+            'gestao-contratos-webapp': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement> & { idToken: string }, HTMLElement>;
+            'gestao-normas-webapp': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement> & { idToken: string }, HTMLElement>;
         }
     }
 }
