@@ -1,3 +1,11 @@
+## [1.8.3](https://github.com/tecidosbr/gestao-processos/compare/v1.8.2...v1.8.3) (2021-02-07)
+
+
+### Bug Fixes
+
+* idtoken evaluation ([f1b3b5e](https://github.com/tecidosbr/gestao-processos/commit/f1b3b5ec9f2419bc307c8a46324ccc2fe72c5bc7))
+* ignore node_modules ([245bd16](https://github.com/tecidosbr/gestao-processos/commit/245bd168bff531a0488f65c4297a042af9c8f4ae))
+
 ## [1.8.2](https://github.com/tecidosbr/gestao-processos/compare/v1.8.1...v1.8.2) (2021-02-07)
 
 
