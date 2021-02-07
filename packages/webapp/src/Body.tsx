@@ -22,13 +22,13 @@ export const Body = withRouter(() => {
                     {auth.idToken && <gestao-normas-webapp idToken={auth.idToken}/>}
                 </Route>
                 <Route path="/gestao-processos" exact>
-                    {auth.idToken && auth.idTokenDecoded?.groups.includes("408f52cf-93cd-4610-b703-1b1d8075d4ea")
+                    {auth.idTokenDecoded?.groups.includes("408f52cf-93cd-4610-b703-1b1d8075d4ea")
                         ? <DataAccess />
                         : <NotFound />}
                 </Route>
                 <Route path="/gestao-contratos" exact>
-                    {auth.idToken && auth.idTokenDecoded?.groups.includes("408f52cf-93cd-4610-b703-1b1d8075d4ea")
-                        ? <gestao-contratos-webapp idToken={auth.idToken} />
+                    {auth.idTokenDecoded?.groups.includes("408f52cf-93cd-4610-b703-1b1d8075d4ea")
+                        ? auth.idToken && <gestao-contratos-webapp idToken={auth.idToken} />
                         : <NotFound />}
                 </Route>
                 <Route>
