@@ -1,3 +1,10 @@
+## [1.8.2](https://github.com/tecidosbr/gestao-processos/compare/v1.8.1...v1.8.2) (2021-02-07)
+
+
+### Bug Fixes
+
+* page access ([81a71d2](https://github.com/tecidosbr/gestao-processos/commit/81a71d2d880f903592b66c2f334826718f0f5cb9))
+
 ## [1.8.1](https://github.com/tecidosbr/gestao-processos/compare/v1.8.0...v1.8.1) (2021-02-06)
 
 
